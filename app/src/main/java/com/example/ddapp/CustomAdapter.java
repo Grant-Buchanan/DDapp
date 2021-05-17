@@ -88,4 +88,5 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         Bundle textBundle = new Bundle();
         textBundle.putString("id", id);
         return textBundle;
+    }
 }
