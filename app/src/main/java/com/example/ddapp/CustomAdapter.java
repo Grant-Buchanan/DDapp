@@ -1,15 +1,21 @@
 package com.example.ddapp;
 
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
     private String[] localDataSet;
+    private FragmentManager mFragmentManager;
+    private Context mContext;
 
     /**
      * Provide a reference to the type of views that you are using
@@ -34,7 +40,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * Initialize the dataset of the Adapter.
      *
      * @param dataSet String[] containing the data to populate views to be used
-     * by RecyclerView.
+     *                by RecyclerView.
      */
     public CustomAdapter(String[] dataSet) {
         localDataSet = dataSet;
@@ -56,7 +62,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
+        final String id = localDataSet[position];
         viewHolder.getTextView().setText(localDataSet[position]);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View itemView) {
+                Bundle bundle = getChar(id);
+                mFragmentManager.beginTransaction()
+                        .addToBackStack(null)
+                        .replace(R.id.nav_host_fragment, DetailsFragment.setInstance(bundle))
+                        .commit();
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -64,5 +81,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public int getItemCount() {
         return localDataSet.length;
     }
-}
 
+    //Bundle
+    public Bundle getChar(String id){
+
+        Bundle textBundle = new Bundle();
+        textBundle.putString("id", id);
+        return textBundle;
+}
