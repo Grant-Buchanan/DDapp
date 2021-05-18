@@ -3,6 +3,7 @@ package com.example.ddapp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
     private String[] localDataSet;
     private FragmentManager mfragmentManager;
     private Context mContext;
+    private boolean fTest = true;
 
     public DDAdapter(Context context, FragmentManager fragmentManager){
         mfragmentManager = fragmentManager;
@@ -59,7 +61,6 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_row_item, viewGroup, false);
-
         return new DDViewHolder(view);
     }
 
@@ -69,6 +70,7 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
+
         final String id = localDataSet[position];
         ddViewHolder.getTextView().setText(localDataSet[position]);
         ddViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
