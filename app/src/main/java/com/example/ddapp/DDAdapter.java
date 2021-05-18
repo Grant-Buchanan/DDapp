@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentFactory;
+import androidx.fragment.app.FragmentTransaction;
+
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,11 +20,11 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
     private String[] localDataSet;
     private FragmentManager mfragmentManager;
     private Context mContext;
-    private boolean fTest = true;
 
-    public DDAdapter(Context context, FragmentManager fragmentManager){
+    public DDAdapter(Context context, String[] mDataset, FragmentManager fragmentManager){
         mfragmentManager = fragmentManager;
         mContext = context;
+        localDataSet = mDataset;
     }
 
     /**
@@ -61,6 +64,7 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_row_item, viewGroup, false);
+        mfragmentManager.setFragmentFactory(Factory);
         return new DDViewHolder(view);
     }
 
@@ -77,9 +81,14 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
             @Override
             public void onClick(View itemView) {
                 Bundle bundle = getChar(id);
+               // FragmentTransaction transaction = mfragmentManager.beginTransaction();
+               // DetailsFragment fragment = new DetailsFragment();
+               // fragment = DetailsFragment.setInstance(bundle);
+               // transaction.replace(R.id.sample_content_fragment, fragment);
+               // transaction.commit();
                 mfragmentManager.beginTransaction()
-                        .addToBackStack(null)
-                        .replace(R.id.nav_host_fragment, DetailsFragment.setInstance(bundle))
+                       .addToBackStack(null)
+                        .replace(R.id.sample_content_fragment, DetailsFragment.setInstance(bundle))
                         .commit();
             }
         });
@@ -88,7 +97,7 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return localDataSet.length;
+            return localDataSet.length;
     }
 
     //Bundle
@@ -98,4 +107,7 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
         textBundle.putString("id", id);
         return textBundle;
     }
+    FragmentFactory Factory = new FragmentFactory(){
+
+    };
 }
