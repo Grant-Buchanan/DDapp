@@ -13,9 +13,10 @@ public class Character {
     @ColumnInfo(name = "id")
 
     private String mId;
+    @ColumnInfo(name = "name")
     private String mName;
 
-    public Character(@NonNull String id, @NonNull String Name) {this.mId = id; this.mName = Name;}
+    public Character(@NonNull String id, @NonNull String name) {this.mId = id; this.mName = name;}
 
     public String getId(){return this.mId;}
 

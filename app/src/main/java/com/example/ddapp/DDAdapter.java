@@ -38,9 +38,15 @@ public class DDAdapter extends RecyclerView.Adapter<DDAdapter.DDViewHolder> {
 
         public DDViewHolder(View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
-
             textView = (TextView) view.findViewById(R.id.textView);
+        }
+        public void bind(String text){
+            textView.setText(text);
+        }
+        static DDViewHolder create(ViewGroup parent){
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.text_row_item, parent, false);
+            return new DDViewHolder(view);
         }
 
         public TextView getTextView() {
