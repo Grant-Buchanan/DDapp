@@ -12,6 +12,7 @@
         android:layout_width="139dp"
         android:layout_height="41dp"
         android:clickable="false"
-        android:text="@string/hello_first_fragment" />
+        android:background="@android:color/holo_orange_light"
+        />
 
 </LinearLayout>

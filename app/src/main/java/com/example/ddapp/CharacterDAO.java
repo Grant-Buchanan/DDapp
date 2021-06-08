@@ -1,6 +1,6 @@
 package com.example.ddapp;
 
-import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -22,5 +22,5 @@ public interface CharacterDAO {
     void deleteAll();
 
     @Query("SELECT * FROM character_table ORDER BY id ASC")
-    LiveData<List<Character>> getAlphabetizedChars();
+    List<Character> getAlphabetizedChars();
 }

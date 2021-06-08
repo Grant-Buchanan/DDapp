@@ -1,24 +1,45 @@
 package com.example.ddapp;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
 public class CharacterRepository {
 
     private CharacterDAO mCharacterDAO;
-    private LiveData<List<Character>> mAllCharacters;
+    private MutableLiveData<List<Character>> mAllCharacters;
+    private static CharacterRepository repo = null;
+    private  Context mContext;
+    private RoomDB db;
 
-    CharacterRepository(Application application){
-        RoomDB db = RoomDB.getDatabase(application);
-        mCharacterDAO = db.characterDAO();
-        mAllCharacters = mCharacterDAO.getAlphabetizedChars();
+    protected CharacterRepository(Application application){
+        if(db == null) {db = RoomDB.getDatabase(application);}
+        mAllCharacters = getFromDatabase();
+        mContext = application.getApplicationContext();
+        repo = this;
     }
 
-    LiveData<List<Character>> getAllCharacters(){
+    public static CharacterRepository getInstance(Context context) {
+        if (repo == null) {
+            return new CharacterRepository((Application) context.getApplicationContext());
+        } else {
+            return repo;
+        }
+    }
+
+    public MutableLiveData<List<Character>> getAllCharacters(){
         return mAllCharacters;
+    }
+
+    public MutableLiveData<List<Character>> getFromDatabase(){
+        if(mAllCharacters != null){return mAllCharacters;}
+        mAllCharacters = new MutableLiveData<>();
+        mAllCharacters.setValue(db.characterDAO().getAlphabetizedChars());
+        return  mAllCharacters;
     }
 
     void insert (Character character){
@@ -26,4 +47,6 @@ public class CharacterRepository {
             mCharacterDAO.insert(character);
         });
     }
+
+
 }

@@ -11,14 +11,25 @@ public class Character {
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
-
-    private String mId;
+    private int mId;
     @ColumnInfo(name = "name")
     private String mName;
 
-    public Character(@NonNull String id, @NonNull String name) {this.mId = id; this.mName = name;}
+    public Character(@NonNull int id,
+                     @NonNull String name
+    ) {
+        this.mId = id;
+        this.mName = name;
+    }
 
-    public String getId(){return this.mId;}
+    public int getId(){return this.mId;}
 
     public String getName(){return this.mName;}
+
+    public static Character[] populate(){
+        return new Character[]{
+                new Character(1,"James"),
+                new Character(2, "Jimmy")
+        };
+    }
 }
