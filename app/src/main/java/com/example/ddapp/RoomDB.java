@@ -21,36 +21,27 @@ public abstract class RoomDB extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static RoomDB getDatabase(final Context context) {
-        if (INSTANCE == null) {
-            synchronized (RoomDB.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            RoomDB.class, "character_database")
-                            .allowMainThreadQueries()
-                            .fallbackToDestructiveMigration()
-                            .addCallback(sRoomDatabaseCallback)
-                            .build();
-                }
-            }
+
+    public static RoomDB getDatabase(Context context){
+        if(INSTANCE != null){
+            return INSTANCE;
         }
+        INSTANCE = buildDatabase(context);
         return INSTANCE;
     }
 
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-
-            databaseWriteExecutor.execute(() -> {
-                CharacterDAO dao = INSTANCE.characterDAO();
-                dao.deleteAll();
-
-                Character character = new Character(1, "James");
-                dao.insert(character);
-                character = new Character(2, "Jones");
-                dao.insert(character);
-            });
-        }
-    };
+    static RoomDB buildDatabase(final Context context) {
+        return Room.databaseBuilder(context,
+                RoomDB.class,"character_database")
+                .addCallback(new Callback() {
+                    @Override
+                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                        super.onCreate(db);
+                        Executors.newSingleThreadExecutor().execute(() -> getDatabase(context).characterDAO().insertAll(Character.populate()));
+                    }
+                })
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
+    }
 }

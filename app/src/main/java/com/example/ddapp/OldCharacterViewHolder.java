@@ -7,10 +7,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CharacterViewHolder extends RecyclerView.ViewHolder {
+public class OldCharacterViewHolder extends RecyclerView.ViewHolder {
     private final TextView characterItemView;
 
-    CharacterViewHolder(View itemView){
+    OldCharacterViewHolder(View itemView){
         super(itemView);
         characterItemView = itemView.findViewById(R.id.textView);
     }
@@ -19,9 +19,9 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder {
         characterItemView.setText(text);
     }
 
-    static CharacterViewHolder create(ViewGroup parent){
+    static OldCharacterViewHolder create(ViewGroup parent){
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);
-        return new CharacterViewHolder(view);
+        return new OldCharacterViewHolder(view);
     }
 }

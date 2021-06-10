@@ -23,4 +23,7 @@ public interface CharacterDAO {
 
     @Query("SELECT * FROM character_table ORDER BY id ASC")
     List<Character> getAlphabetizedChars();
+
+    @Insert
+    void insertAll(Character... characters);
 }

@@ -22,7 +22,7 @@ public class DetailsViewModel extends AndroidViewModel {
         mAllCharacters = mRepository.getAllCharacters();
     }
 
-    LiveData<List<Character>> getAllCharacters() {return mAllCharacters;}
+    LiveData<List<Character>> getAllCharacters(){return mAllCharacters;}
 
     public void insert(Character character){mRepository.insert(character);}
 

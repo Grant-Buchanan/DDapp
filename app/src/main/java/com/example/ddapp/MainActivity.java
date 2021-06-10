@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             RecyclerViewFragment fragment = new RecyclerViewFragment();
-            transaction.replace(R.id.sample_content_fragment, fragment);
+            transaction.replace(R.id.main_frag, fragment);
             transaction.commit();
         }
         mDetailsViewModel= new ViewModelProvider(this).get(DetailsViewModel.class);
