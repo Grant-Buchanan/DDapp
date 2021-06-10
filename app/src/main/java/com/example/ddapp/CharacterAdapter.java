@@ -16,6 +16,8 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder> {
@@ -36,11 +38,17 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
 
     class CharacterViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textView;
+        TextView textName;
+        TextView textLevel;
+        TextView textRace;
+        TextView textClas;
 
         public CharacterViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.textView);
+            textName = itemView.findViewById(R.id.textName);
+            textLevel = itemView.findViewById(R.id.textLevel);
+            textRace = itemView.findViewById(R.id.textRace);
+            textClas = itemView.findViewById(R.id.textClass);
         }
     }
 
@@ -59,7 +67,14 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
         Character character = mAllCharacters.getValue().get(position);
         final int id = character.getId();
         final String name = character.getName();
-        holder.textView.setText(name);
+        final int level = character.getLevel();
+        final String race = character.getRace();
+        final String clas = character.getClas();
+
+        holder.textName.setText(name);
+        holder.textLevel.setText("Level " + Integer.toString(level));
+        holder.textRace.setText(race);
+        holder.textClas.setText(clas);
         //replace with getChar later
 
     }

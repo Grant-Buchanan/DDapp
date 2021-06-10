@@ -57,7 +57,7 @@ public class RecyclerViewFragment extends Fragment {
         super.onActivityResult(requestCode,resultCode,data);
 
         if (requestCode == NEW_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            Character character = new Character(data.getIntExtra(NewCharacterActivity.EXTRA_REPLY, 1), data.getStringExtra(NewCharacterActivity.EXTRA_REPLY));
+            Character character = new Character(data.getIntExtra(NewCharacterActivity.EXTRA_REPLY, 0), data.getStringExtra(NewCharacterActivity.EXTRA_REPLY),0,"null","null");
             mDetailsViewModel.insert(character);
         } else {
             Toast.makeText(

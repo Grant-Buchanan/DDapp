@@ -12,7 +12,7 @@ public class OldCharacterViewHolder extends RecyclerView.ViewHolder {
 
     OldCharacterViewHolder(View itemView){
         super(itemView);
-        characterItemView = itemView.findViewById(R.id.textView);
+        characterItemView = itemView.findViewById(R.id.textName);
     }
 
     public void bind(int text){
