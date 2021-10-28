@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,31 +44,17 @@ public class RecyclerViewFragment extends Fragment {
 
         mAdapter = new CharacterAdapter(repo, getContext(), getParentFragmentManager());
 
+        mDetailsViewModel = new ViewModelProvider(this).get(DetailsViewModel.class);
+
         mRecyclerView.setAdapter(mAdapter);
 
         return rootView;
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-
-        if (requestCode == NEW_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            Character character = new Character(data.getIntExtra(NewCharacterActivity.EXTRA_REPLY, 0), data.getStringExtra(NewCharacterActivity.EXTRA_REPLY),0,"null","null");
-            mDetailsViewModel.insert(character);
-        } else {
-            Toast.makeText(
-                    getActivity().getApplicationContext(),
-                    R.string.empty_not_saved,
-                    Toast.LENGTH_LONG).show();
-
-        }
-    }
-
-
 
 }

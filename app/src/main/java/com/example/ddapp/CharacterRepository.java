@@ -19,6 +19,7 @@ public class CharacterRepository {
     protected CharacterRepository(Application application){
         if(db == null) {db = RoomDB.getDatabase(application);}
         mAllCharacters = getFromDatabase();
+        mCharacterDAO = db.characterDAO();
         mContext = application.getApplicationContext();
         repo = this;
     }
