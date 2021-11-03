@@ -13,14 +13,11 @@ import androidx.fragment.app.FragmentFactory;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LiveData;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder> {
+public class OldCharacterAdapter extends RecyclerView.Adapter<OldCharacterAdapter.CharacterViewHolder> {
 
 
     private FragmentManager mfragmentManager;
@@ -28,7 +25,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
     private LiveData<List<Character>> mAllCharacters;
     private DetailsViewModel model;
 
-    public CharacterAdapter(@NonNull CharacterRepository characterRepository, Context context, FragmentManager fragmentManager){
+    public OldCharacterAdapter(@NonNull CharacterRepository characterRepository, Context context, FragmentManager fragmentManager){
 
         mContext = context;
         mfragmentManager = fragmentManager;

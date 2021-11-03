@@ -8,18 +8,18 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
-public class CharacterRepository {
+ class CharacterRepository {
 
     private CharacterDAO mCharacterDAO;
-    private MutableLiveData<List<Character>> mAllCharacters;
+    private LiveData<List<Character>> mAllCharacters;
     private static CharacterRepository repo = null;
     private  Context mContext;
     private RoomDB db;
 
-    protected CharacterRepository(Application application){
+    CharacterRepository(Application application){
         if(db == null) {db = RoomDB.getDatabase(application);}
-        mAllCharacters = getFromDatabase();
         mCharacterDAO = db.characterDAO();
+        mAllCharacters = mCharacterDAO.getAlphabetizedChars();
         mContext = application.getApplicationContext();
         repo = this;
     }
@@ -32,15 +32,13 @@ public class CharacterRepository {
         }
     }
 
-    public MutableLiveData<List<Character>> getAllCharacters(){
+    public LiveData<List<Character>> getAllCharacters(){
+        if(mAllCharacters != null){return  mAllCharacters;}
+        else{
+            mAllCharacters = mCharacterDAO.getAlphabetizedChars();
+        }
         return mAllCharacters;
-    }
 
-    public MutableLiveData<List<Character>> getFromDatabase(){
-        if(mAllCharacters != null){return mAllCharacters;}
-        mAllCharacters = new MutableLiveData<>();
-        mAllCharacters.setValue(db.characterDAO().getAlphabetizedChars());
-        return  mAllCharacters;
     }
 
     void insert (Character character){

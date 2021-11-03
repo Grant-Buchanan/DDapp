@@ -1,27 +1,21 @@
 package com.example.ddapp;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static android.app.Activity.RESULT_OK;
 
 public class RecyclerViewFragment extends Fragment {
 
     FragmentManager fragmentManager;
-    CharacterAdapter mAdapter;
+    CharacterListAdapter mAdapter;
     CharacterRepository repo;
     private static final String TAG = "RecyclerViewFragment";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
@@ -42,11 +36,16 @@ public class RecyclerViewFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mAdapter = new CharacterAdapter(repo, getContext(), getParentFragmentManager());
+        mAdapter = new CharacterListAdapter(new CharacterListAdapter.CharDiff(), repo, getContext());
 
         mDetailsViewModel = new ViewModelProvider(this).get(DetailsViewModel.class);
 
         mRecyclerView.setAdapter(mAdapter);
+
+        mDetailsViewModel.getAllCharacters().observe(getViewLifecycleOwner(), characters -> {
+            mAdapter.submitList(characters);
+        });
+
 
         return rootView;
 

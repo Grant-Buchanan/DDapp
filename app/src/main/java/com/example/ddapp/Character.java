@@ -46,14 +46,14 @@ public class Character {
 
     public static Character[] populate(){
         return new Character[]{
-                new Character(1,"Zagara", 10, "Tiefling", "sorcerer"),
-                new Character(2, "Lothar",2,"Human","fighter"),
-                new Character(3,"Duul",5,"Half-Orc","barbarian"),
-                new Character(4,"Shiina",14,"Elf","wizard"),
-                new Character(5,"Vivic",3,"Drow","ranger"),
-                new Character(6,"Risu",5,"Half-elf","rogue"),
-                new Character(7,"Hert",1,"Human","cleric"),
-                new Character(8,"Kiva",7,"Tiefling","rogue")
+                new Character(0,"Zagara", 10, "Tiefling", "sorcerer"),
+                new Character(1, "Lothar",2,"Human","fighter"),
+                new Character(2,"Duul",5,"Half-Orc","barbarian"),
+                new Character(3,"Shiina",14,"Elf","wizard"),
+                new Character(4,"Vivic",3,"Drow","ranger"),
+                new Character(5,"Risu",5,"Half-elf","rogue"),
+                new Character(6,"Hert",1,"Human","cleric"),
+                new Character(7,"Kiva",7,"Tiefling","rogue")
         };
     }
 }
