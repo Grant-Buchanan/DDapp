@@ -38,7 +38,7 @@ public class NewCharacterActivity extends AppCompatActivity {
             } else {
                 String name = mEditCharacterView.getText().toString();
                 int level = Integer.parseInt(mEditLevelView.getText().toString());
-                String race = mEditLevelView.getText().toString();
+                String race = mEditRaceView.getText().toString();
                 String clas = mEditClasView.getText().toString();
 
                 replyIntent.putExtra(NAME_REPLY, name);
