@@ -4,16 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentFactory;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
 
         if (requestCode == NEW_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            Character character = new Character(data.getIntExtra(NewCharacterActivity.EXTRA_REPLY, 0), data.getStringExtra(NewCharacterActivity.EXTRA_REPLY),0,"null","null");
+            Character character = new Character(data.getIntExtra(NewCharacterActivity.NAME_REPLY, 0), data.getStringExtra(NewCharacterActivity.NAME_REPLY),data.getIntExtra(NewCharacterActivity.LEVEL_REPLY, 0),data.getStringExtra(NewCharacterActivity.RACE_REPLY),data.getStringExtra(NewCharacterActivity.CLAS_REPLY));
             mDetailsViewModel.insert(character);
         } else {
             Toast.makeText(
