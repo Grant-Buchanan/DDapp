@@ -11,6 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="hint_character">Character...</string>
+    <string name="hint_level">Level...</string>
+    <string name="hint_race">Race...</string>
+    <string name="hint_clas">Class...</string>
     <string name="button_save">Save</string>
-    <string name="empty_not_saved">Character not saved because it is empty.</string>
+    <string name="empty_not_saved">All characters must have a name, level, race, and class.</string>
 </resources>
