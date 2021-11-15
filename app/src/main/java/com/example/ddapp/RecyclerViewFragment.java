@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment implements CharacterListAdapter.OnClickListener {
 
     FragmentManager fragmentManager;
     CharacterListAdapter mAdapter;
@@ -36,7 +37,7 @@ public class RecyclerViewFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mAdapter = new CharacterListAdapter(new CharacterListAdapter.CharDiff(), repo, getContext());
+        mAdapter = new CharacterListAdapter(new CharacterListAdapter.CharDiff(), repo, getContext(), this);
 
         mDetailsViewModel = new ViewModelProvider(this).get(DetailsViewModel.class);
 
@@ -56,4 +57,9 @@ public class RecyclerViewFragment extends Fragment {
         super.onSaveInstanceState(savedInstanceState);
     }
 
+    @Override
+    public void onCharacterClick(int position) {
+        Toast toast = Toast.makeText(getActivity(),"CLICKED",Toast.LENGTH_SHORT);
+        toast.show();
+    }
 }

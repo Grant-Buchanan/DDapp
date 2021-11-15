@@ -13,15 +13,17 @@ import java.util.List;
 public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHolder> {
 
     private LiveData<List<Character>> mAllCharacters;
+    final private OnClickListener mOnClickListener;
 
-    public  CharacterListAdapter(@NonNull DiffUtil.ItemCallback<Character> diffCallback, CharacterRepository repo, Context context){
+    public  CharacterListAdapter(@NonNull DiffUtil.ItemCallback<Character> diffCallback, CharacterRepository repo, Context context, OnClickListener onClickListener){
         super(diffCallback);
         mAllCharacters = repo.getInstance(context).getAllCharacters();
+       this.mOnClickListener = onClickListener;
     }
 
     @Override
     public CharacterViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        return CharacterViewHolder.create(parent);
+        return CharacterViewHolder.create(parent, mOnClickListener);
     }
 
 
@@ -54,4 +56,10 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
             return oldItem.getName().equals(newItem.getName());
         }
     }
+
+    public interface OnClickListener{
+        void onCharacterClick(int position);
+    }
+
+
 }
