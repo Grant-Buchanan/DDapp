@@ -8,14 +8,16 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewFragment extends Fragment implements CharacterListAdapter.OnClickListener {
 
-    FragmentManager fragmentManager;
+    FragmentManager mFragmentManager;
     CharacterListAdapter mAdapter;
     CharacterRepository repo;
     private static final String TAG = "RecyclerViewFragment";
@@ -59,7 +61,14 @@ public class RecyclerViewFragment extends Fragment implements CharacterListAdapt
 
     @Override
     public void onCharacterClick(int position) {
-        Toast toast = Toast.makeText(getActivity(),"CLICKED",Toast.LENGTH_SHORT);
-        toast.show();
+        Bundle bundle = mAdapter.getCharacterData(position);
+        DetailsFragment fragment = new DetailsFragment().setInstance(bundle);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_frag, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
+
+
 }

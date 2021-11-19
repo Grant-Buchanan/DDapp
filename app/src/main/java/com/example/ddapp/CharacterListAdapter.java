@@ -1,6 +1,7 @@
 package com.example.ddapp;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -29,18 +30,12 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
-        Character current = getItem(position);
-        final int id = current.getId();
-        final String name = current.getName();
-        final int level = current.getLevel();
-        final String race = current.getRace();
-        final String clas = current.getClas();
+        Bundle bundle = getCharacterData(position);
 
-        holder.textName.setText(name);
-        holder.textLevel.setText("Level " + Integer.toString(level));
-        holder.textRace.setText(race);
-        holder.textClas.setText(clas);
-        //replace with getChar later
+        holder.textName.setText(bundle.getString("name"));
+        holder.textLevel.setText("Level " + Integer.toString(bundle.getInt("level")));
+        holder.textRace.setText(bundle.getString("race"));
+        holder.textClas.setText(bundle.getString("clas"));
 
     }
 
@@ -61,5 +56,22 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         void onCharacterClick(int position);
     }
 
+    public Bundle getCharacterData(int position){
+        Character current = getItem(position);
+        final int id = current.getId();
+        final String name = current.getName();
+        final int level = current.getLevel();
+        final String race = current.getRace();
+        final String clas = current.getClas();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("id",id);
+        bundle.putString("name",name);
+        bundle.putInt("level",level);
+        bundle.putString("race",race);
+        bundle.putString("clas",clas);
+
+        return bundle;
+    }
 
 }
