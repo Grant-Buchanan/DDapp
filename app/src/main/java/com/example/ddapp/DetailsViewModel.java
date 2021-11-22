@@ -13,7 +13,7 @@ public class DetailsViewModel extends AndroidViewModel {
 
     private CharacterRepository mRepository;
     private final LiveData<List<Character>> mAllCharacters;
-    private MutableLiveData<String> getDetailsId;
+    private MutableLiveData<String> mDetailsName;
 
     public DetailsViewModel(Application application) {
         super(application);
@@ -25,10 +25,10 @@ public class DetailsViewModel extends AndroidViewModel {
 
     public void insert(Character character){mRepository.insert(character);}
 
-    public MutableLiveData<String> getDetailsId(){
-        if (getDetailsId == null) {
-            getDetailsId = new MutableLiveData<>();
+    public MutableLiveData<String> setDetailsName(){
+        if (mDetailsName == null) {
+            mDetailsName = new MutableLiveData<>();
         }
-        return getDetailsId;
+        return mDetailsName;
     }
 }
