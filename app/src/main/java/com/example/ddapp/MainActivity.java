@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DetailsViewModel mDetailsViewModel;
     private CharacterRepository repo;
-
+    static FloatingActionButton fab;
+    public boolean isMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportFragmentManager().setFragmentFactory(Factory);
         repo = CharacterRepository.getInstance(getApplicationContext());
-
-
+        setState(true);
+        setFab();
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             RecyclerViewFragment fragment = new RecyclerViewFragment();
@@ -39,10 +40,13 @@ public class MainActivity extends AppCompatActivity {
         }
         mDetailsViewModel= new ViewModelProvider(this).get(DetailsViewModel.class);
 
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+    }
+
+
+    public void setFab(){
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener( view ->{
             Intent intent = new Intent(MainActivity.this, NewCharacterActivity.class);
@@ -51,6 +55,25 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+
+    public boolean checkState(){
+        if(isMain){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public void setState(boolean b){
+        if(b){
+            isMain = true;
+        }
+        else{
+            isMain = false;
+        }
+    }
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
