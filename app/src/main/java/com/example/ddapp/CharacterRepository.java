@@ -47,5 +47,11 @@ import java.util.List;
         });
     }
 
+    void delete (Character character){
+        RoomDB.databaseWriteExecutor.execute(()->{
+            mCharacterDAO.delete(character);
+        });
+    }
+
 
 }

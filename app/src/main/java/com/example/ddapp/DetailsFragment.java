@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,6 +29,8 @@ public class DetailsFragment extends Fragment {
     static Integer level;
     static String race;
     static String clas;
+    static Character character;
+    private static com.example.ddapp.Character Character;
     TextView detailsName;
     TextView detailsLevel;
     TextView detailsRace;
@@ -46,9 +49,10 @@ public class DetailsFragment extends Fragment {
         detailsRace = view.findViewById(R.id.detailsRace);
         detailsClas = view.findViewById(R.id.detailsClass);
         detailsName.setText(name);
-        detailsLevel.setText(" is a " + level + " ");
+        detailsLevel.setText(" is a level " + level + " ");
         detailsRace.setText(race + " ");
         detailsClas.setText(clas);
+
 
         Log.d("DETAILS_CREATION", "id is " + id + ", name is " + name + ", level is " + level + ", race is " + race + ", class is " + clas);
 
@@ -59,13 +63,14 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+
         if(!((MainActivity)getActivity()).checkState()) {
             FloatingActionButton fab = this.getActivity().findViewById(R.id.fab);
             fab.setOnClickListener(v -> {
-                Toast.makeText(
-                        getContext(),
-                        "FAB change test",
-                        Toast.LENGTH_SHORT).show();
+                character = new Character(id,name,level,race,clas);
+                mDetailsViewModel.delete(character);
+                getActivity().getSupportFragmentManager().popBackStack();
             });
         }
     }
@@ -75,12 +80,17 @@ public class DetailsFragment extends Fragment {
         ((MainActivity)getActivity()).setFab();
     }
 
+    public static Character createCharacter(){
+        return Character;
+    }
+
     public static DetailsFragment setInstance (Bundle bundle){
         id = bundle.getInt("id");
         name = bundle.getString("name");
         level = bundle.getInt("level");
         race = bundle.getString("race");
         clas = bundle.getString("clas");
+       // Character = new Character (id,name,level,race,clas);
         return new DetailsFragment();
     }
 

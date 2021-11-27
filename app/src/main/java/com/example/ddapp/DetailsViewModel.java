@@ -25,6 +25,8 @@ public class DetailsViewModel extends AndroidViewModel {
 
     public void insert(Character character){mRepository.insert(character);}
 
+    public void delete(Character character){mRepository.delete(character);}
+
     public MutableLiveData<String> setDetailsName(){
         if (mDetailsName == null) {
             mDetailsName = new MutableLiveData<>();
