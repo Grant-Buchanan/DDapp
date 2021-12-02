@@ -64,7 +64,7 @@ public class RecyclerViewFragment extends Fragment implements CharacterListAdapt
         Bundle bundle = mAdapter.getCharacterData(position);
         DetailsFragment fragment = new DetailsFragment().setInstance(bundle);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        ((MainActivity)getActivity()).setState(false);
+
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_frag, fragment);
         transaction.addToBackStack(null);

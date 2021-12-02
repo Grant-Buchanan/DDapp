@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -36,7 +37,7 @@ public class DetailsFragment extends Fragment {
     TextView detailsRace;
     TextView detailsClas;
     private DetailsViewModel mDetailsViewModel;
-
+    private MenuItem item;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -53,6 +54,8 @@ public class DetailsFragment extends Fragment {
         detailsRace.setText(race + " ");
         detailsClas.setText(clas);
 
+        setHasOptionsMenu(true);
+
 
         Log.d("DETAILS_CREATION", "id is " + id + ", name is " + name + ", level is " + level + ", race is " + race + ", class is " + clas);
 
@@ -64,24 +67,13 @@ public class DetailsFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+            getActivity().invalidateOptionsMenu();
 
-        if(!((MainActivity)getActivity()).checkState()) {
-            FloatingActionButton fab = this.getActivity().findViewById(R.id.fab);
-            fab.setOnClickListener(v -> {
-                character = new Character(id,name,level,race,clas);
-                mDetailsViewModel.delete(character);
-                getActivity().getSupportFragmentManager().popBackStack();
-            });
-        }
+
     }
     public void onDestroy() {
         super.onDestroy();
-        ((MainActivity)getActivity()).setState(true);
-        ((MainActivity)getActivity()).setFab();
-    }
-
-    public static Character createCharacter(){
-        return Character;
+        getActivity().invalidateOptionsMenu();
     }
 
     public static DetailsFragment setInstance (Bundle bundle){
@@ -101,6 +93,20 @@ public class DetailsFragment extends Fragment {
         race = bundle.getString("race");
         clas = bundle.getString("clas");
         return new DetailsFragment();
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.action_delete:
+                character = new Character(id,name,level,race,clas);
+                mDetailsViewModel.delete(character);
+                getActivity().getSupportFragmentManager().popBackStack();
+                return true;
+
+            case R.id.action_edit:
+                return true;
+        }
+        return true;
     }
 
 }

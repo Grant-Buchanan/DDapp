@@ -1,16 +1,19 @@
 package com.example.ddapp;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportFragmentManager().setFragmentFactory(Factory);
         repo = CharacterRepository.getInstance(getApplicationContext());
-        setState(true);
+
         setFab();
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -45,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    protected void onResume() {
+        super.onResume();
+
+        invalidateOptionsMenu();
+    }
+
 
     public void setFab(){
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -56,23 +65,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public boolean checkState(){
-        if(isMain){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public void setState(boolean b){
-        if(b){
-            isMain = true;
-        }
-        else{
-            isMain = false;
-        }
-    }
 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -92,8 +84,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the action bar settings menu
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem itemSettings = menu.findItem(R.id.action_settings);
+        MenuItem itemEdit = menu.findItem(R.id.action_edit);
+        MenuItem itemDelete = menu.findItem(R.id.action_delete);
+        // Check which fragment is currently in focus
+        if(checkCurrentFragment(getCurrentFragment()) == 2){
+            itemSettings.setVisible(true);
+            itemEdit.setVisible(false);
+            itemDelete.setVisible(false);
+        }
+        if(checkCurrentFragment(getCurrentFragment()) == 1){
+            itemSettings.setVisible(false);
+            itemDelete.setVisible(true);
+            itemEdit.setVisible(true);
+        }
+
         return true;
     }
 
@@ -102,14 +109,36 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        Log.d("FRAG","Fragment is " + getSupportFragmentManager().findFragmentById(R.id.main_frag).getClass().getSimpleName());
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Log.d("OPTIONS_SWITCH", "Option settings");
             return true;
+        }
+        else if(id == R.id.action_edit){
+            Log.d("OPTIONS_SWITCH", "Option edit" );
+        }
+        else{
+            Log.d("OPTIONS_SWITCH", "Option delete");
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public Fragment getCurrentFragment(){
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_frag);
+        return currentFragment;
+    }
+
+    public int checkCurrentFragment(Fragment currentFragment){
+        if(currentFragment instanceof DetailsFragment){
+            return 1;
+        }
+        return 2;
     }
 
     FragmentFactory Factory = new FragmentFactory(){
