@@ -19,7 +19,8 @@
             android:layout_height="72dp"
             android:background="@color/buttonLabel"
             android:clickable="false"
-            android:gravity="center" />
+            android:gravity="center"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/detailsLevel"
@@ -27,7 +28,8 @@
             android:layout_height="72dp"
             android:background="@color/buttonLabel"
             android:clickable="false"
-            android:gravity="center" />
+            android:gravity="center"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/detailsRace"
@@ -35,7 +37,8 @@
             android:layout_height="72dp"
             android:background="@color/buttonLabel"
             android:clickable="false"
-            android:gravity="center" />
+            android:gravity="center"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/detailsClass"
@@ -43,7 +46,10 @@
             android:layout_height="72dp"
             android:background="@color/buttonLabel"
             android:clickable="false"
-            android:gravity="center" />
+            android:gravity="center"
+            android:visibility="invisible" />
+
+
 
     </LinearLayout>
 

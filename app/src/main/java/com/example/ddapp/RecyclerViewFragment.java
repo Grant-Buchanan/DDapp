@@ -35,6 +35,8 @@ public class RecyclerViewFragment extends Fragment implements CharacterListAdapt
         View rootView = inflater.inflate(R.layout.recycler_view_frag, container, false);
         rootView.setTag(TAG);
 
+
+
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -64,7 +66,6 @@ public class RecyclerViewFragment extends Fragment implements CharacterListAdapt
         Bundle bundle = mAdapter.getCharacterData(position);
         DetailsFragment fragment = new DetailsFragment().setInstance(bundle);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.main_frag, fragment);
         transaction.addToBackStack(null);

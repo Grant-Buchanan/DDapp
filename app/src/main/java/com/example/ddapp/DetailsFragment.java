@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,20 +33,22 @@ public class DetailsFragment extends Fragment {
     static String race;
     static String clas;
     static Character character;
-    private static com.example.ddapp.Character Character;
     TextView detailsName;
     TextView detailsLevel;
     TextView detailsRace;
     TextView detailsClas;
+    //Reference to the view model
     private DetailsViewModel mDetailsViewModel;
-    private MenuItem item;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.details_fragment, container, false);
+
+
+        //Set view model provider
         mDetailsViewModel = new ViewModelProvider(this).get(DetailsViewModel.class);
 
+        //Find references to textviews, and set each field appropriately
         detailsName = view.findViewById(R.id.detailsName);
         detailsLevel = view.findViewById(R.id.detailsLevel);
         detailsRace = view.findViewById(R.id.detailsRace);
@@ -54,56 +58,53 @@ public class DetailsFragment extends Fragment {
         detailsRace.setText(race + " ");
         detailsClas.setText(clas);
 
+        //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to
         setHasOptionsMenu(true);
-
-
         Log.d("DETAILS_CREATION", "id is " + id + ", name is " + name + ", level is " + level + ", race is " + race + ", class is " + clas);
 
         return view;
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
-            getActivity().invalidateOptionsMenu();
-
+        //Invalidate the options menu update to call onCreateOptionsMenu in the MainActivity
+        getActivity().invalidateOptionsMenu();
 
     }
     public void onDestroy() {
         super.onDestroy();
+
+        //Invalidate the options menu when the user navigates back to the RecyclerViewFragment, this is done to hide the options that are only supposed to display while the details fragment is present
         getActivity().invalidateOptionsMenu();
+
     }
 
     public static DetailsFragment setInstance (Bundle bundle){
+        //This function is used to create a new DetailsFragment from within the RecyclerViewFragment. A bundle of character data is taken as a parameter in order to set the relevant data within the new fragment.
         id = bundle.getInt("id");
         name = bundle.getString("name");
         level = bundle.getInt("level");
         race = bundle.getString("race");
         clas = bundle.getString("clas");
-       // Character = new Character (id,name,level,race,clas);
         return new DetailsFragment();
     }
 
-    public static DetailsFragment updateInstance (Bundle bundle){
-        id = bundle.getInt("id");
-        name = bundle.getString("name");
-        level = bundle.getInt("level");
-        race = bundle.getString("race");
-        clas = bundle.getString("clas");
-        return new DetailsFragment();
-    }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+            //Click listener for behavior specific to the DetailsFragment
 
             case R.id.action_delete:
+                //Delete a character
                 character = new Character(id,name,level,race,clas);
                 mDetailsViewModel.delete(character);
                 getActivity().getSupportFragmentManager().popBackStack();
                 return true;
 
             case R.id.action_edit:
+                //Edit a character
+
                 return true;
         }
         return true;
