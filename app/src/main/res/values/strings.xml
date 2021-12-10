@@ -18,4 +18,6 @@
     <string name="hint_clas">Class...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">All characters must have a name, level, race, and class.</string>
+    <string name="edit_failed">Character has not been edited successfully.</string>
+    <string name="edit_success">Character has been edited successfully.</string>
 </resources>

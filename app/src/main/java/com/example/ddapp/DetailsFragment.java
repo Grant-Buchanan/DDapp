@@ -23,10 +23,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.w3c.dom.Text;
 
 
-import static com.example.ddapp.RecyclerViewFragment.NEW_CHARACTER_ACTIVITY_REQUEST_CODE;
+import static android.app.Activity.RESULT_OK;
+
+
 
 public class DetailsFragment extends Fragment {
 
+    private static final int EDIT_CHARACTER_ACTIVITY_REQUEST_CODE = 1;
     static Integer id;
     static String name;
     static Integer level;
@@ -104,10 +107,35 @@ public class DetailsFragment extends Fragment {
 
             case R.id.action_edit:
                 //Edit a character
-
+                Intent intent = new Intent(getContext(), EditCharacterActivity.class);
+                intent.putExtra("EDIT_ID",id);
+                intent.putExtra("EDIT_NAME",name);
+                intent.putExtra("EDIT_LEVEL",level);
+                intent.putExtra("EDIT_RACE",race);
+                intent.putExtra("EDIT_CLAS",clas);
+                startActivityForResult(intent, EDIT_CHARACTER_ACTIVITY_REQUEST_CODE);
                 return true;
         }
         return true;
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if (requestCode == EDIT_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            Character character = new Character((data.getIntExtra(EditCharacterActivity.ID_REPLY, 0)), data.getStringExtra(EditCharacterActivity.NAME_REPLY),data.getIntExtra(EditCharacterActivity.LEVEL_REPLY, 0),data.getStringExtra(EditCharacterActivity.RACE_REPLY),data.getStringExtra(EditCharacterActivity.CLAS_REPLY));
+            mDetailsViewModel.update(character);
+            getActivity().getSupportFragmentManager().popBackStack();
+
+        } else {
+            Toast.makeText(
+                    getActivity().getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+
 }
+

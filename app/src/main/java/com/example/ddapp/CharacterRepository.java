@@ -53,5 +53,9 @@ import java.util.List;
         });
     }
 
-
+    void update (Character character){
+        RoomDB.databaseWriteExecutor.execute(()->{
+            mCharacterDAO.update(character.getId(), character.getName(), character.getLevel(), character.getRace(), character.getClas());
+        });
+    }
 }

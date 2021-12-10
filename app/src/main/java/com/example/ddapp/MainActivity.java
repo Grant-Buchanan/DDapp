@@ -73,12 +73,18 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == NEW_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             Character character = new Character(data.getIntExtra(NewCharacterActivity.NAME_REPLY, 0), data.getStringExtra(NewCharacterActivity.NAME_REPLY),data.getIntExtra(NewCharacterActivity.LEVEL_REPLY, 0),data.getStringExtra(NewCharacterActivity.RACE_REPLY),data.getStringExtra(NewCharacterActivity.CLAS_REPLY));
             mDetailsViewModel.insert(character);
-        } else {
+        } else if (getSupportFragmentManager().findFragmentById(R.id.main_frag) instanceof DetailsFragment) {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.edit_success,
+                    Toast.LENGTH_LONG).show();
+
+        }
+        else{
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,
                     Toast.LENGTH_LONG).show();
-
         }
     }
 
