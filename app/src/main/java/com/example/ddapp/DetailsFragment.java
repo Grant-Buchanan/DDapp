@@ -35,11 +35,33 @@ public class DetailsFragment extends Fragment {
     static Integer level;
     static String race;
     static String clas;
+    static String size;
+    static String background;
+    static String alignment;
+    static Integer init;
+    static Integer str;
+    static Integer dex;
+    static Integer con;
+    static Integer intelligence;
+    static Integer wis;
+    static Integer chr;
+    static Integer HP;
     static Character character;
     TextView detailsName;
     TextView detailsLevel;
     TextView detailsRace;
     TextView detailsClas;
+    TextView detailsSize;
+    TextView detailsBackground;
+    TextView detailsAlignment;
+    TextView detailsInit;
+    TextView detailsStr;
+    TextView detailsDex;
+    TextView DetailsCon;
+    TextView detailsInt;
+    TextView detailsWis;
+    TextView detailsChr;
+    TextView detailsHP;
     //Reference to the view model
     private DetailsViewModel mDetailsViewModel;
 
@@ -57,7 +79,7 @@ public class DetailsFragment extends Fragment {
         detailsRace = view.findViewById(R.id.detailsRace);
         detailsClas = view.findViewById(R.id.detailsClass);
         detailsName.setText(name);
-        detailsLevel.setText(" is a level " + level + " ");
+        detailsLevel.setText("Level " + level + " ");
         detailsRace.setText(race + " ");
         detailsClas.setText(clas);
 
@@ -91,6 +113,18 @@ public class DetailsFragment extends Fragment {
         level = bundle.getInt("level");
         race = bundle.getString("race");
         clas = bundle.getString("clas");
+        size = bundle.getString("size");
+        alignment = bundle.getString("alignment");
+        background = bundle.getString("background");
+        init = bundle.getInt("init");
+        str = bundle.getInt("str");
+        dex = bundle.getInt("dex");
+        con = bundle.getInt("con");
+        intelligence = bundle.getInt("int");
+        wis = bundle.getInt("wis");
+        chr = bundle.getInt("chr");
+        HP = bundle.getInt("HP");
+
         return new DetailsFragment();
     }
 
@@ -113,6 +147,18 @@ public class DetailsFragment extends Fragment {
                 intent.putExtra("EDIT_LEVEL",level);
                 intent.putExtra("EDIT_RACE",race);
                 intent.putExtra("EDIT_CLAS",clas);
+                intent.putExtra("EDIT_SIZE",size);
+                intent.putExtra("EDIT_ALIGNMENT", alignment);
+                intent.putExtra("EDIT_BACKGROUND", background);
+                intent.putExtra("EDIT_INIT", init);
+                intent.putExtra("EDIT_STR", str);
+                intent.putExtra("EDIT_DEX", dex);
+                intent.putExtra("EDIT_CON", con);
+                intent.putExtra("EDIT_INT", intelligence);
+                intent.putExtra("EDIT_WIS", wis);
+                intent.putExtra("EDIT_CHR", chr);
+                intent.putExtra("EDIT_HP", HP);
+
                 startActivityForResult(intent, EDIT_CHARACTER_ACTIVITY_REQUEST_CODE);
                 return true;
         }

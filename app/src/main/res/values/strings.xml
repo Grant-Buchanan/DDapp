@@ -12,10 +12,21 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <string name="hint_character">Character...</string>
+    <string name="hint_character">Name...</string>
     <string name="hint_level">Level...</string>
     <string name="hint_race">Race...</string>
     <string name="hint_clas">Class...</string>
+    <string name="hint_size">Size...</string>
+    <string name="hint_background">Background...</string>
+    <string name="hint_alignment">Alignment...</string>
+    <string name="hint_init">Initiative...</string>
+    <string name="hint_str">Strength...</string>
+    <string name="hint_dex">Dexterity...</string>
+    <string name="hint_con">Constitution...</string>
+    <string name="hint_int">Intelligence...</string>
+    <string name="hint_wis">Wisdom...</string>
+    <string name="hint_chr">Charisma...</string>
+    <string name="hint_HP">HP...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">All characters must have a name, level, race, and class.</string>
     <string name="edit_failed">Character has not been edited successfully.</string>

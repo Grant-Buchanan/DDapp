@@ -25,10 +25,10 @@ public class NewCharacterActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_character);
-        mEditCharacterView = findViewById(R.id.edit_word);
-        mEditLevelView = findViewById(R.id.edit_word2);
-        mEditRaceView = findViewById(R.id.edit_word3);
-        mEditClasView = findViewById(R.id.edit_word4);
+        mEditCharacterView = findViewById(R.id.edit_name);
+        mEditLevelView = findViewById(R.id.edit_level);
+        mEditRaceView = findViewById(R.id.edit_race);
+        mEditClasView = findViewById(R.id.edit_class);
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> {
