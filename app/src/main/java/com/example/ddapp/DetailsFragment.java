@@ -134,7 +134,7 @@ public class DetailsFragment extends Fragment {
 
             case R.id.action_delete:
                 //Delete a character
-                character = new Character(id,name,level,race,clas);
+                character = new Character(id,name,level,race,clas,size,background,alignment,init,str,dex,con,intelligence,wis,chr,HP);
                 mDetailsViewModel.delete(character);
                 getActivity().getSupportFragmentManager().popBackStack();
                 return true;
@@ -169,7 +169,23 @@ public class DetailsFragment extends Fragment {
         super.onActivityResult(requestCode,resultCode,data);
 
         if (requestCode == EDIT_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            Character character = new Character((data.getIntExtra(EditCharacterActivity.ID_REPLY, 0)), data.getStringExtra(EditCharacterActivity.NAME_REPLY),data.getIntExtra(EditCharacterActivity.LEVEL_REPLY, 0),data.getStringExtra(EditCharacterActivity.RACE_REPLY),data.getStringExtra(EditCharacterActivity.CLAS_REPLY));
+            Character character = new Character(
+                    (data.getIntExtra(EditCharacterActivity.ID_REPLY, 0)),
+                    data.getStringExtra(EditCharacterActivity.NAME_REPLY),
+                    data.getIntExtra(EditCharacterActivity.LEVEL_REPLY, 0),
+                    data.getStringExtra(EditCharacterActivity.RACE_REPLY),
+                    data.getStringExtra(EditCharacterActivity.CLAS_REPLY),
+                    data.getStringExtra(EditCharacterActivity.SIZE_REPLY),
+                    data.getStringExtra(EditCharacterActivity.BACKGROUND_REPLY),
+                    data.getStringExtra(EditCharacterActivity.ALIGNMENT_REPLY),
+                    data.getIntExtra(EditCharacterActivity.INIT_REPLY, 0),
+                    data.getIntExtra(EditCharacterActivity.STR_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.DEX_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.CON_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.INT_REPLY,0),
+                    data.getIntExtra(EditCharacterActivity.WIS_REPLY,0),
+                    data.getIntExtra(EditCharacterActivity.CHR_REPLY,0),
+                    data.getIntExtra(EditCharacterActivity.HP_REPLY,0));
             mDetailsViewModel.update(character);
             getActivity().getSupportFragmentManager().popBackStack();
 

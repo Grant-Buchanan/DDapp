@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Character.class}, version = 4, exportSchema = false)
+@Database(entities = {Character.class}, version = 5, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
 
     public abstract CharacterDAO characterDAO();
