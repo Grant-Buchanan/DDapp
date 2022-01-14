@@ -37,6 +37,7 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         holder.textRace.setText(bundle.getString("race"));
         holder.textClas.setText(bundle.getString("clas"));
 
+
     }
 
     static class CharDiff extends DiffUtil.ItemCallback<Character>{
@@ -63,13 +64,35 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         final int level = current.getLevel();
         final String race = current.getRace();
         final String clas = current.getClas();
+        final String size = current.getSize();
+        final String background = current.getBackground();
+        final String alignment = current.getAlignment();
+        final int init = current.getInit();
+        final int str = current.getStr();
+        final int dex = current.getDex();
+        final int con = current.getCon();
+        final int intelligence = current.getIntelligence();
+        final int wis = current.getWis();
+        final int chr = current.getChr();
+        final int HP = current.getHealthPoints();
 
         Bundle bundle = new Bundle();
-        bundle.putInt("id",id);
-        bundle.putString("name",name);
-        bundle.putInt("level",level);
-        bundle.putString("race",race);
-        bundle.putString("clas",clas);
+        bundle.putInt("id", id);
+        bundle.putString("name", name);
+        bundle.putInt("level", level);
+        bundle.putString("race", race);
+        bundle.putString("clas", clas);
+        bundle.putString("size", size);
+        bundle.putString("background", background);
+        bundle.putString("alignment", alignment);
+        bundle.putInt("init", init);
+        bundle.putInt("str", str);
+        bundle.putInt("dex", dex);
+        bundle.putInt("con", con);
+        bundle.putInt("int", intelligence);
+        bundle.putInt("wis", wis);
+        bundle.putInt("chr", chr);
+        bundle.putInt("HP",HP);
 
         return bundle;
     }

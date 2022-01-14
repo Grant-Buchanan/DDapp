@@ -79,14 +79,14 @@ public class MainActivity extends AppCompatActivity {
                     data.getStringExtra(EditCharacterActivity.SIZE_REPLY),
                     data.getStringExtra(EditCharacterActivity.BACKGROUND_REPLY),
                     data.getStringExtra(EditCharacterActivity.ALIGNMENT_REPLY),
-                    data.getIntExtra(EditCharacterActivity.INIT_REPLY, 0),
+                    data.getIntExtra(EditCharacterActivity.INIT_REPLY, 10),
                     data.getIntExtra(EditCharacterActivity.STR_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.DEX_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.CON_REPLY,10),
-                    data.getIntExtra(EditCharacterActivity.INT_REPLY,0),
-                    data.getIntExtra(EditCharacterActivity.WIS_REPLY,0),
-                    data.getIntExtra(EditCharacterActivity.CHR_REPLY,0),
-                    data.getIntExtra(EditCharacterActivity.HP_REPLY,0));
+                    data.getIntExtra(EditCharacterActivity.INT_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.WIS_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.CHR_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.HP_REPLY,10));
             mDetailsViewModel.insert(character);
         } else if (getSupportFragmentManager().findFragmentById(R.id.main_frag) instanceof DetailsFragment) {
             Toast.makeText(

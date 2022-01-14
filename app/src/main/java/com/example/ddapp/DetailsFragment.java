@@ -7,20 +7,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.w3c.dom.Text;
 
 
 import static android.app.Activity.RESULT_OK;
@@ -78,10 +71,12 @@ public class DetailsFragment extends Fragment {
         detailsLevel = view.findViewById(R.id.detailsLevel);
         detailsRace = view.findViewById(R.id.detailsRace);
         detailsClas = view.findViewById(R.id.detailsClass);
+        detailsSize = view.findViewById(R.id.detailsSize);
         detailsName.setText(name);
-        detailsLevel.setText("Level " + level + " ");
-        detailsRace.setText(race + " ");
+        detailsLevel.setText("Level " + level);
+        detailsRace.setText(race);
         detailsClas.setText(clas);
+        detailsSize.setText(size);
 
         //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to
         setHasOptionsMenu(true);
@@ -114,8 +109,8 @@ public class DetailsFragment extends Fragment {
         race = bundle.getString("race");
         clas = bundle.getString("clas");
         size = bundle.getString("size");
-        alignment = bundle.getString("alignment");
         background = bundle.getString("background");
+        alignment = bundle.getString("alignment");
         init = bundle.getInt("init");
         str = bundle.getInt("str");
         dex = bundle.getInt("dex");
@@ -182,10 +177,10 @@ public class DetailsFragment extends Fragment {
                     data.getIntExtra(EditCharacterActivity.STR_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.DEX_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.CON_REPLY,10),
-                    data.getIntExtra(EditCharacterActivity.INT_REPLY,0),
-                    data.getIntExtra(EditCharacterActivity.WIS_REPLY,0),
-                    data.getIntExtra(EditCharacterActivity.CHR_REPLY,0),
-                    data.getIntExtra(EditCharacterActivity.HP_REPLY,0));
+                    data.getIntExtra(EditCharacterActivity.INT_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.WIS_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.CHR_REPLY,10),
+                    data.getIntExtra(EditCharacterActivity.HP_REPLY,10));
             mDetailsViewModel.update(character);
             getActivity().getSupportFragmentManager().popBackStack();
 

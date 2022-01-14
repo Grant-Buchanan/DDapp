@@ -19,8 +19,8 @@ public interface CharacterDAO {
     @Delete
     void delete(Character id);
 
-    @Query("UPDATE character_table SET name=:name, level=:level, race=:race, clas=:clas WHERE id = :id")
-    void update(int id, String name, int level, String race, String clas);
+    @Query("UPDATE character_table SET name=:name, level=:level, race=:race, clas=:clas, size=:size WHERE id = :id")
+    void update(int id, String name, int level, String race, String clas, String size);
 
     @Query("DELETE FROM character_table")
     void deleteAll();

@@ -13,6 +13,7 @@
 
         android:background="@color/buttonLabel"
         android:clickable="false"
+        android:paddingRight="4dp"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/tokenFrame"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +25,7 @@
         android:background="@color/buttonLabel"
 
         android:clickable="false"
+        android:paddingRight="4dp"
         app:layout_constraintStart_toEndOf="@+id/tokenFrame"
         app:layout_constraintTop_toBottomOf="@+id/detailsName" />
 
@@ -34,17 +36,27 @@
         android:background="@color/buttonLabel"
 
         android:clickable="false"
+        android:paddingRight="4dp"
         app:layout_constraintStart_toEndOf="@+id/detailsLevel"
         app:layout_constraintTop_toBottomOf="@+id/detailsName" />
 
     <TextView
-        android:id="@+id/detailsRace"
-        android:layout_width="150dp"
+        android:id="@+id/detailsSize"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/buttonLabel"
         android:clickable="false"
+        android:paddingRight="4dp"
         app:layout_constraintStart_toEndOf="@+id/tokenFrame"
-        app:layout_constraintTop_toBottomOf="@+id/detailsClass" />
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+    <TextView
+        android:id="@+id/detailsRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="4dp"
+        app:layout_constraintStart_toEndOf="@+id/detailsSize"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <FrameLayout
         android:id="@+id/tokenFrame"
@@ -81,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toEndOf="@+id/tokenFrame"
-        app:layout_constraintTop_toBottomOf="@+id/detailsRace">
+        app:layout_constraintTop_toBottomOf="@+id/detailsSize">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -97,6 +109,7 @@
         android:layout_marginEnd="10dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/detailsLevel"
         app:layout_constraintTop_toTopOf="@+id/detailsLevel" />
 
@@ -107,8 +120,8 @@
         android:layout_marginEnd="10dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/detailsRace"
-        app:layout_constraintTop_toTopOf="@+id/detailsRace" />
+        app:layout_constraintStart_toEndOf="@+id/tokenFrame"
+        app:layout_constraintTop_toBottomOf="@+id/detailsLevel" />
 
     <View
         android:id="@+id/divider4"
@@ -117,7 +130,7 @@
         android:layout_marginEnd="10dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/detailsRace"
-        app:layout_constraintTop_toBottomOf="@+id/detailsRace" />
+        app:layout_constraintStart_toStartOf="@+id/detailsSize"
+        app:layout_constraintTop_toBottomOf="@+id/detailsSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
