@@ -50,7 +50,7 @@ public class DetailsFragment extends Fragment {
     TextView detailsInit;
     TextView detailsStr;
     TextView detailsDex;
-    TextView DetailsCon;
+    TextView detailsCon;
     TextView detailsInt;
     TextView detailsWis;
     TextView detailsChr;
@@ -72,11 +72,29 @@ public class DetailsFragment extends Fragment {
         detailsRace = view.findViewById(R.id.detailsRace);
         detailsClas = view.findViewById(R.id.detailsClass);
         detailsSize = view.findViewById(R.id.detailsSize);
+        //
+        //
+        //
+        detailsStr = view.findViewById(R.id.detailsStrNum);
+        detailsDex = view.findViewById(R.id.detailsDexNum);
+        detailsCon = view.findViewById(R.id.detailsConNum);
+        detailsInt = view.findViewById(R.id.detailsIntNum);
+        detailsWis = view.findViewById(R.id.detailsWisNum);
+        detailsChr = view.findViewById(R.id.detailsChrNum);
         detailsName.setText(name);
         detailsLevel.setText("Level " + level);
         detailsRace.setText(race);
         detailsClas.setText(clas);
         detailsSize.setText(size);
+        //detailsBackground
+        //detailsAlignment
+        //detailsInit;
+        detailsStr.setText(Integer.toString(str));
+        detailsDex.setText(Integer.toString(dex));
+        detailsCon.setText(Integer.toString(con));
+        detailsInt.setText(Integer.toString(intelligence));
+        detailsWis.setText(Integer.toString(wis));
+        detailsChr.setText(Integer.toString(chr));
 
         //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to
         setHasOptionsMenu(true);

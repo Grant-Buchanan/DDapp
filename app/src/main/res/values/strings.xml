@@ -8,9 +8,13 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="detailsStr">STR</string>
+    <string name="detailsDex">DEX</string>
+    <string name="detailsCon">CON</string>
+    <string name="detailsInt">INT</string>
+    <string name="detailsWis">WIS</string>
+    <string name="detailsChr">CHR</string>
+    <string name="detailsHP">HP</string>
 
     <string name="hint_character">Name...</string>
     <string name="hint_level">Level...</string>
