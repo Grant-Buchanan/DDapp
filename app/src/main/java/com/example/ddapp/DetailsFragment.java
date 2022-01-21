@@ -55,6 +55,9 @@ public class DetailsFragment extends Fragment {
     TextView detailsWis;
     TextView detailsChr;
     TextView detailsHP;
+    TextView detailsArmorClass;
+    TextView detailsSpeed;
+    TextView detailsProf;
     //Reference to the view model
     private DetailsViewModel mDetailsViewModel;
 
@@ -72,29 +75,37 @@ public class DetailsFragment extends Fragment {
         detailsRace = view.findViewById(R.id.detailsRace);
         detailsClas = view.findViewById(R.id.detailsClass);
         detailsSize = view.findViewById(R.id.detailsSize);
-        //
-        //
-        //
+        detailsBackground = view.findViewById(R.id.detailsBackground);
+        detailsAlignment = view.findViewById(R.id.detailsAlignment);
+        detailsInit = view.findViewById(R.id.detailsInit);
         detailsStr = view.findViewById(R.id.detailsStrNum);
         detailsDex = view.findViewById(R.id.detailsDexNum);
         detailsCon = view.findViewById(R.id.detailsConNum);
         detailsInt = view.findViewById(R.id.detailsIntNum);
         detailsWis = view.findViewById(R.id.detailsWisNum);
         detailsChr = view.findViewById(R.id.detailsChrNum);
+        detailsHP = view.findViewById(R.id.detailsHP);
+        detailsArmorClass = view.findViewById(R.id.detailsArmorClass);
+        detailsSpeed = view.findViewById(R.id.detailsSpeed);
+        detailsProf = view.findViewById(R.id.detailsProf);
         detailsName.setText(name);
         detailsLevel.setText("Level " + level);
         detailsRace.setText(race);
         detailsClas.setText(clas);
         detailsSize.setText(size);
-        //detailsBackground
-        //detailsAlignment
-        //detailsInit;
+        detailsBackground.setText(background);
+        detailsAlignment.setText("(" + alignment + ")");
+        detailsInit.setText("init " + init);
         detailsStr.setText(Integer.toString(str));
         detailsDex.setText(Integer.toString(dex));
         detailsCon.setText(Integer.toString(con));
         detailsInt.setText(Integer.toString(intelligence));
         detailsWis.setText(Integer.toString(wis));
         detailsChr.setText(Integer.toString(chr));
+        detailsHP.setText(HP + "/" + HP + " HP");
+        detailsArmorClass.setText("AC "+ (10 + ((dex - 10)/2)));
+        detailsSpeed.setText("Speed 30 ft");
+        detailsProf.setText("Prof " + (2 + (level - 1)/4));
 
         //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to
         setHasOptionsMenu(true);
