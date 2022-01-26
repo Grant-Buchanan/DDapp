@@ -103,7 +103,7 @@ public class EditCharacterActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(mEditCharacterView.getText()) || TextUtils.isEmpty(mEditLevelView.getText()) || TextUtils.isEmpty(mEditRaceView.getText()) || TextUtils.isEmpty(mEditClasView.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                //Get the current EditText values to new variables
+                //Get the current EditText values and set to new variables
                 int id = getIntent().getExtras().getInt("EDIT_ID");
                 String name = mEditCharacterView.getText().toString();
                 int level = Integer.parseInt(mEditLevelView.getText().toString());
