@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditCharacterActivity extends AppCompatActivity {
 
+    //Key identifiers for adding edited data to replyIntent.
     public static final String ID_REPLY = "com.example.android.idlistsql.REPLY";
     public static final String NAME_REPLY = "com.example.android.characterlistsql.REPLY";
     public static final String LEVEL_REPLY = "com.example.android.levellistsql.REPLY";
@@ -27,6 +28,7 @@ public class EditCharacterActivity extends AppCompatActivity {
     public static final String CHR_REPLY = "com.example.android.chrlistsql.REPLY";
     public static final String HP_REPLY = "com.example.android.hplistsql.REPLY";
 
+    //Instances of needed EditTexts
     private EditText mEditCharacterView;
     private EditText mEditLevelView;
     private EditText mEditRaceView;
@@ -49,6 +51,8 @@ public class EditCharacterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_new_character);
+
+        //Set views
         mEditCharacterView = findViewById(R.id.edit_name);
         mEditLevelView = findViewById(R.id.edit_level);
         mEditRaceView = findViewById(R.id.edit_race);
@@ -64,7 +68,7 @@ public class EditCharacterActivity extends AppCompatActivity {
         mEditWisView = findViewById(R.id.edit_wis);
         mEditChrView = findViewById(R.id.edit_chr);
         mEditHPView = findViewById(R.id.edit_hp);
-
+        //Retrieve data from intent and set the current values
         mEditCharacterView.setText(getIntent().getExtras().getString("EDIT_NAME"));
         int level1 = getIntent().getExtras().getInt("EDIT_LEVEL");
         mEditLevelView.setText(String.valueOf(level1));
@@ -89,12 +93,17 @@ public class EditCharacterActivity extends AppCompatActivity {
         mEditChrView.setText(String.valueOf(chr1));
         int HP1 = getIntent().getExtras().getInt("EDIT_HP");
         mEditHPView.setText(String.valueOf(HP1));
+
+        //Button for saving edited data
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> {
+            //New Intent for edited data
             Intent replyIntent = new Intent();
+            //If certain fields are empty, cancel the activity
             if (TextUtils.isEmpty(mEditCharacterView.getText()) || TextUtils.isEmpty(mEditLevelView.getText()) || TextUtils.isEmpty(mEditRaceView.getText()) || TextUtils.isEmpty(mEditClasView.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
+                //Get the current EditText values to new variables
                 int id = getIntent().getExtras().getInt("EDIT_ID");
                 String name = mEditCharacterView.getText().toString();
                 int level = Integer.parseInt(mEditLevelView.getText().toString());
@@ -112,7 +121,7 @@ public class EditCharacterActivity extends AppCompatActivity {
                 int chr = Integer.parseInt(mEditChrView.getText().toString());
                 int hp = Integer.parseInt(mEditHPView.getText().toString());
 
-
+                //Add the new variables to Intent
                 replyIntent.putExtra(ID_REPLY,id);
                 replyIntent.putExtra(NAME_REPLY, name);
                 replyIntent.putExtra(LEVEL_REPLY, level);

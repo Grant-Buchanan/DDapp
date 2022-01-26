@@ -22,7 +22,10 @@ import static android.app.Activity.RESULT_OK;
 
 public class DetailsFragment extends Fragment {
 
+    //Request code for starting a new EditCharacter activity
     private static final int EDIT_CHARACTER_ACTIVITY_REQUEST_CODE = 1;
+
+    //Empty instances of needed variables
     static Integer id;
     static String name;
     static Integer level;
@@ -40,6 +43,8 @@ public class DetailsFragment extends Fragment {
     static Integer chr;
     static Integer HP;
     static Character character;
+
+    //Instances of needed TextViews
     TextView detailsName;
     TextView detailsLevel;
     TextView detailsRace;
@@ -58,6 +63,7 @@ public class DetailsFragment extends Fragment {
     TextView detailsArmorClass;
     TextView detailsSpeed;
     TextView detailsProf;
+
     //Reference to the view model
     private DetailsViewModel mDetailsViewModel;
 
@@ -65,11 +71,10 @@ public class DetailsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.details_fragment, container, false);
 
-
         //Set view model provider
         mDetailsViewModel = new ViewModelProvider(this).get(DetailsViewModel.class);
 
-        //Find references to textviews, and set each field appropriately
+        //Find references to TextViews and...
         detailsName = view.findViewById(R.id.detailsName);
         detailsLevel = view.findViewById(R.id.detailsLevel);
         detailsRace = view.findViewById(R.id.detailsRace);
@@ -88,6 +93,7 @@ public class DetailsFragment extends Fragment {
         detailsArmorClass = view.findViewById(R.id.detailsArmorClass);
         detailsSpeed = view.findViewById(R.id.detailsSpeed);
         detailsProf = view.findViewById(R.id.detailsProf);
+        //set each field appropriately based on data passed from selected item in recyclerView.
         detailsName.setText(name);
         detailsLevel.setText("Level " + level);
         detailsRace.setText(race);
@@ -95,7 +101,7 @@ public class DetailsFragment extends Fragment {
         detailsSize.setText(size);
         detailsBackground.setText(background);
         detailsAlignment.setText("(" + alignment + ")");
-        detailsInit.setText("init " + init);
+        detailsInit.setText("INIT " + init);
         detailsStr.setText(Integer.toString(str));
         detailsDex.setText(Integer.toString(dex));
         detailsCon.setText(Integer.toString(con));
@@ -107,9 +113,8 @@ public class DetailsFragment extends Fragment {
         detailsSpeed.setText("Speed 30 ft");
         detailsProf.setText("Prof " + (2 + (level - 1)/4));
 
-        //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to
+        //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to (tracking clicks, refreshing menus)
         setHasOptionsMenu(true);
-        Log.d("DETAILS_CREATION", "id is " + id + ", name is " + name + ", level is " + level + ", race is " + race + ", class is " + clas);
 
         return view;
     }
@@ -131,6 +136,7 @@ public class DetailsFragment extends Fragment {
     }
 
     public static DetailsFragment setInstance (Bundle bundle){
+
         //This function is used to create a new DetailsFragment from within the RecyclerViewFragment. A bundle of character data is taken as a parameter in order to set the relevant data within the new fragment.
         id = bundle.getInt("id");
         name = bundle.getString("name");
@@ -158,13 +164,14 @@ public class DetailsFragment extends Fragment {
 
             case R.id.action_delete:
                 //Delete a character
+                //Todo: Change this to be just the character ID instead of making an entirely new character in order to tell the database what to delete
                 character = new Character(id,name,level,race,clas,size,background,alignment,init,str,dex,con,intelligence,wis,chr,HP);
                 mDetailsViewModel.delete(character);
                 getActivity().getSupportFragmentManager().popBackStack();
                 return true;
 
             case R.id.action_edit:
-                //Edit a character
+                //Edit a character. Add all current character variables to a new Intent with EditCharacterActivity.
                 Intent intent = new Intent(getContext(), EditCharacterActivity.class);
                 intent.putExtra("EDIT_ID",id);
                 intent.putExtra("EDIT_NAME",name);
@@ -183,16 +190,20 @@ public class DetailsFragment extends Fragment {
                 intent.putExtra("EDIT_CHR", chr);
                 intent.putExtra("EDIT_HP", HP);
 
+                //Start a new EditCharacterActivity with a request code.
                 startActivityForResult(intent, EDIT_CHARACTER_ACTIVITY_REQUEST_CODE);
                 return true;
         }
         return true;
     }
 
+    //Called when returning from EditCharacterActivity.
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
 
+        //If the correct request and result codes are given, proceed with editing the character.
         if (requestCode == EDIT_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            //Create a new character.
             Character character = new Character(
                     (data.getIntExtra(EditCharacterActivity.ID_REPLY, 0)),
                     data.getStringExtra(EditCharacterActivity.NAME_REPLY),
@@ -210,10 +221,13 @@ public class DetailsFragment extends Fragment {
                     data.getIntExtra(EditCharacterActivity.WIS_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.CHR_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.HP_REPLY,10));
+            //Replace the existing character with the new character.
             mDetailsViewModel.update(character);
             getActivity().getSupportFragmentManager().popBackStack();
 
         } else {
+            //Or let the user know that the edit operation failed.
+            //Todo: make this message more helpful to the user
             Toast.makeText(
                     getActivity().getApplicationContext(),
                     R.string.empty_not_saved,

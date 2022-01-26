@@ -81,7 +81,7 @@
 
     <FrameLayout
         android:id="@+id/tokenFrame"
-        android:layout_width="150dp"
+        android:layout_width="125dp"
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -90,8 +90,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
 
             android:layout_gravity="center|top"
             android:src="@drawable/testpic" />
@@ -273,9 +273,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="@+id/tokenFrame"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tokenFrame">
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/detailsHP"
