@@ -240,7 +240,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintBottom_toBottomOf="@+id/tokenFrame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tokenFrame"
         app:layout_constraintTop_toBottomOf="@+id/divider5">
