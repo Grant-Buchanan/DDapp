@@ -2,11 +2,12 @@ package com.example.ddapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,9 @@ public class DetailsFragment extends Fragment {
     TextView detailsSpeed;
     TextView detailsProf;
 
+    //Character class ImageView
+    ImageButton detailsImage;
+
     //Reference to the view model
     private DetailsViewModel mDetailsViewModel;
 
@@ -93,7 +97,8 @@ public class DetailsFragment extends Fragment {
         detailsArmorClass = view.findViewById(R.id.detailsArmorClass);
         detailsSpeed = view.findViewById(R.id.detailsSpeed);
         detailsProf = view.findViewById(R.id.detailsProf);
-        //set each field appropriately based on data passed from selected item in recyclerView.
+
+        //...set each field appropriately based on data passed from selected item in recyclerView.
         detailsName.setText(name);
         detailsLevel.setText("Level " + level);
         detailsRace.setText(race);
@@ -112,6 +117,49 @@ public class DetailsFragment extends Fragment {
         detailsArmorClass.setText("AC "+ (10 + ((dex - 10)/2)));
         detailsSpeed.setText("Speed 30 ft");
         detailsProf.setText("Prof " + (2 + (level - 1)/4));
+
+        //Set the ImageView based on which class the character is.
+        //TODO: allow users to upload their own images to serve as profile pictures. I'll likely keep this code section in to serve as a default image even after this is done.
+        detailsImage = view.findViewById(R.id.detailsImage);
+
+        switch(clas){
+            case"Barbarian":
+                detailsImage.setImageResource(R.drawable.lorc_barbarian);
+                break;
+            case"Cleric":
+                detailsImage.setImageResource(R.drawable.lorc_cleric);
+                break;
+            case"Druid":
+                detailsImage.setImageResource(R.drawable.lorc_druid);
+                break;
+            case"Fighter":
+                detailsImage.setImageResource(R.drawable.lorc_fighter);
+                break;
+            case"Monk":
+                detailsImage.setImageResource(R.drawable.lorc_monk);
+                break;
+            case"Paladin":
+                detailsImage.setImageResource(R.drawable.lorc_paladin);
+                break;
+            case"Ranger":
+                detailsImage.setImageResource(R.drawable.lorc_ranger);
+                break;
+            case"Rogue":
+                detailsImage.setImageResource(R.drawable.lorc_rogue);
+                break;
+            case"Sorcerer":
+                detailsImage.setImageResource(R.drawable.lorc_sorcerer);
+                break;
+            case"Warlock":
+                detailsImage.setImageResource(R.drawable.lorc_warlock);
+                break;
+            case"Wizard":
+                detailsImage.setImageResource(R.drawable.lorc_wizard);
+                break;
+            default:
+                detailsImage.setImageResource(R.drawable.lorc_rogue);
+                break;
+        }
 
         //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to (tracking clicks, refreshing menus)
         setHasOptionsMenu(true);
