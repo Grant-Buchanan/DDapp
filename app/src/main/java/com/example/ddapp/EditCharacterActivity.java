@@ -68,7 +68,7 @@ public class EditCharacterActivity extends AppCompatActivity {
         mEditWisView = findViewById(R.id.edit_wis);
         mEditChrView = findViewById(R.id.edit_chr);
         mEditHPView = findViewById(R.id.edit_hp);
-        //Retrieve data from intent and set the current values
+        //Retrieve character data from intent and set the current values in the EditText fields
         mEditCharacterView.setText(getIntent().getExtras().getString("EDIT_NAME"));
         int level1 = getIntent().getExtras().getInt("EDIT_LEVEL");
         mEditLevelView.setText(String.valueOf(level1));

@@ -13,15 +13,21 @@ import java.util.List;
 
 public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHolder> {
 
+    //Empty list for population later.
     private LiveData<List<Character>> mAllCharacters;
+    //Reference to a ClickListener.
     final private OnClickListener mOnClickListener;
 
+    //Constructor for the adapter.
     public  CharacterListAdapter(@NonNull DiffUtil.ItemCallback<Character> diffCallback, CharacterRepository repo, Context context, OnClickListener onClickListener){
         super(diffCallback);
         mAllCharacters = repo.getInstance(context).getAllCharacters();
+
+        //Set the ClickListener from the RecyclerViewFragment's ClickListener
        this.mOnClickListener = onClickListener;
     }
 
+    //On create, return a new custom view holder with the correct ViewGroup and ClickListener
     @Override
     public CharacterViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         return CharacterViewHolder.create(parent, mOnClickListener);
@@ -30,14 +36,12 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
+        //Set data to be displayed for every list item based on the position of the item. This code is run once for each item in the database.
         Bundle bundle = getCharacterData(position);
-
         holder.textName.setText(bundle.getString("name"));
         holder.textLevel.setText("Level " + Integer.toString(bundle.getInt("level")));
         holder.textRace.setText(bundle.getString("race"));
         holder.textClas.setText(bundle.getString("clas"));
-
-
     }
 
     static class CharDiff extends DiffUtil.ItemCallback<Character>{
@@ -53,11 +57,14 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         }
     }
 
+    //Click listener interface.
     public interface OnClickListener{
         void onCharacterClick(int position);
     }
 
+    //Retrieve the data of an item in the database dependant on the position of the item in the list view. This method is called in onBindViewHolder to provide the list with the data it needs to display items.
     public Bundle getCharacterData(int position){
+
         Character current = getItem(position);
         final int id = current.getId();
         final String name = current.getName();
@@ -76,6 +83,7 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         final int chr = current.getChr();
         final int HP = current.getHealthPoints();
 
+        //Put all this information into a bundle for easier access.
         Bundle bundle = new Bundle();
         bundle.putInt("id", id);
         bundle.putString("name", name);

@@ -17,25 +17,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewFragment extends Fragment implements CharacterListAdapter.OnClickListener {
 
-    FragmentManager mFragmentManager;
+
+    //Instances of the ListAdapter and Repository.
     CharacterListAdapter mAdapter;
     CharacterRepository repo;
-    private static final String TAG = "RecyclerViewFragment";
-    private static final String KEY_LAYOUT_MANAGER = "layoutManager";
-    private static final int SPAN_COUNT = 2;
 
+    //Fragment name TAG.
+    private static final String TAG = "RecyclerViewFragment";
+
+    //RecyclerView singleton.
     protected RecyclerView mRecyclerView;
-    protected RecyclerView.LayoutManager mLayoutManager;
+
+    //Reference to the ViewModel.
     private DetailsViewModel mDetailsViewModel;
+
+    //Request code for adding a new character.
     public static final int NEW_CHARACTER_ACTIVITY_REQUEST_CODE = 1;
 
 
+    //On creating the view; set RecyclerView itself, the LayoutManager for the view, the Adapter, the ViewModel, and then observe all characters and submit the list of characters to be displayed.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.recycler_view_frag, container, false);
         rootView.setTag(TAG);
-
-
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
@@ -51,9 +55,7 @@ public class RecyclerViewFragment extends Fragment implements CharacterListAdapt
             mAdapter.submitList(characters);
         });
 
-
         return rootView;
-
     }
 
     @Override
@@ -61,6 +63,7 @@ public class RecyclerViewFragment extends Fragment implements CharacterListAdapt
         super.onSaveInstanceState(savedInstanceState);
     }
 
+    //Handle the behavior for a list item being clicked. In this case, create a bundle of data for the clicked character, create a new DetailsFragment with that bundle, and replace the current fragment with the new DetailsFragment.
     @Override
     public void onCharacterClick(int position) {
         Bundle bundle = mAdapter.getCharacterData(position);

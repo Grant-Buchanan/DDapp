@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "character_table")
 public class Character {
 
+    //Define the Character table.
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
@@ -78,6 +79,7 @@ public class Character {
         this.mHealthPoints = healthPoints;
     }
 
+    //Get methods for each column of the table.
     public int getId(){return this.mId;}
 
     public String getName(){return this.mName;}
@@ -110,6 +112,8 @@ public class Character {
 
     public int getHealthPoints(){return this.mHealthPoints;}
 
+    //Method to populate the database with test data. Needs to be updated.
+    //TODO: Make this work.
     public static Character[] populate(){
         return new Character[]{
        //         new Character(0,"Zagara", 10, "Tiefling", "sorcerer"),

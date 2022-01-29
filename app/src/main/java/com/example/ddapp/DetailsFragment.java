@@ -65,17 +65,17 @@ public class DetailsFragment extends Fragment {
     TextView detailsSpeed;
     TextView detailsProf;
 
-    //Character class ImageView
+    //Character class ImageView.
     ImageButton detailsImage;
 
-    //Reference to the view model
+    //Reference to the view model.
     private DetailsViewModel mDetailsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.details_fragment, container, false);
 
-        //Set view model provider
+        //Set view model provider.
         mDetailsViewModel = new ViewModelProvider(this).get(DetailsViewModel.class);
 
         //Find references to TextViews and...

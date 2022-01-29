@@ -16,6 +16,7 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder implements View
     TextView textClas;
     static CharacterListAdapter.OnClickListener mOnClickListener;
 
+    //Find references to the TextViews required for the ListAdapter, and set the ClickListener.
     public CharacterViewHolder(@NonNull View itemView) {
         super(itemView);
         textName = itemView.findViewById(R.id.textName);
@@ -30,10 +31,12 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder implements View
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recyclerview_item, parent, false);
 
+        //Set the OnClickListener for the ViewHolder from the ListAdapter's reference to the ClickListener.
         mOnClickListener = listener;
         return new CharacterViewHolder(view);
     }
 
+    //Custom onClick behavior for the ClickListener
     @Override
     public void onClick(View v) {
         int position = getAdapterPosition();
