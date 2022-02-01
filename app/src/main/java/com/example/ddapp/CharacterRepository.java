@@ -60,7 +60,23 @@ import java.util.List;
     //Update a character in the database.
     void update (Character character){
         RoomDB.databaseWriteExecutor.execute(()->{
-            mCharacterDAO.update(character.getId(), character.getName(), character.getLevel(), character.getRace(), character.getClas(), character.getSize());
+            mCharacterDAO.update(
+                    character.getId(),
+                    character.getName(),
+                    character.getLevel(),
+                    character.getRace(),
+                    character.getClas(),
+                    character.getSize(),
+                    character.getBackground(),
+                    character.getAlignment(),
+                    character.getInit(),
+                    character.getStr(),
+                    character.getDex(),
+                    character.getCon(),
+                    character.getIntelligence(),
+                    character.getWis(),
+                    character.getChr(),
+                    character.getHealthPoints());
         });
     }
 }

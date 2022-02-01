@@ -23,16 +23,15 @@ import static com.example.ddapp.RecyclerViewFragment.NEW_CHARACTER_ACTIVITY_REQU
 public class MainActivity extends AppCompatActivity {
 
     private DetailsViewModel mDetailsViewModel;
-    private CharacterRepository repo;
     static FloatingActionButton fab;
-    public boolean isMain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportFragmentManager().setFragmentFactory(Factory);
-        repo = CharacterRepository.getInstance(getApplicationContext());
+
 
         setFab();
         if (savedInstanceState == null) {
