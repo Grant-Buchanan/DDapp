@@ -1,13 +1,12 @@
 <resources>
     <string name="app_name">DDapp</string>
+
+    <!-- Options menu strings -->
     <string name="action_settings">Settings</string>
     <string name="action_edit">Edit</string>
     <string name="action_delete">Delete</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+
+    <!-- details_fragment strings -->
     <string name="detailsStr">STR</string>
     <string name="detailsDex">DEX</string>
     <string name="detailsCon">CON</string>
@@ -16,6 +15,26 @@
     <string name="detailsChr">CHR</string>
     <string name="detailsHP">HP</string>
 
+    <string name="detailsAcroLabel">Acrobatics</string>
+    <string name="detailsAHLabel">Animal Handling</string>
+    <string name="detailsArcLabel">Arcana</string>
+    <string name="detailsAthLabel">Athletics</string>
+    <string name="detailsDeceptLabel">Deception</string>
+    <string name="detailsHistLabel">History</string>
+    <string name="detailsInsLabel">Insight</string>
+    <string name="detailsIntimiLabel">Intimidation</string>
+    <string name="detailsInvestLabel">Investigation</string>
+    <string name="detailsMedLabel">Medicine</string>
+    <string name="detailsNatLabel">Nature</string>
+    <string name="detailsPerfLabel">Performance</string>
+    <string name="detailsPercLabel">Perception</string>
+    <string name="detailsPersLabel">Persuasion</string>
+    <string name="detailsReligLabel">Religion</string>
+    <string name="detailsSoHLabel">Slight of Hand</string>
+    <string name="detailsStealLabel">Stealth</string>
+    <string name="detailsSurvLabel">Survival</string>
+
+    <!-- create/edit character strings -->
     <string name="hint_character">Name...</string>
     <string name="hint_level">Level...</string>
     <string name="hint_race">Race...</string>
@@ -31,6 +50,7 @@
     <string name="hint_wis">Wisdom...</string>
     <string name="hint_chr">Charisma...</string>
     <string name="hint_HP">HP...</string>
+
     <string name="button_save">Save</string>
     <string name="empty_not_saved">All characters must have a name, level, race, and class.</string>
     <string name="edit_failed">Character has not been edited successfully.</string>

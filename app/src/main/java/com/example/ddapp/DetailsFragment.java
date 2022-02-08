@@ -43,6 +43,10 @@ public class DetailsFragment extends Fragment {
     static Integer wis;
     static Integer chr;
     static Integer HP;
+    static Integer armorClass;
+    static Integer speed;
+    static Integer prof;
+
     static Character character;
 
     //Instances of needed TextViews
@@ -64,6 +68,24 @@ public class DetailsFragment extends Fragment {
     TextView detailsArmorClass;
     TextView detailsSpeed;
     TextView detailsProf;
+    TextView detailsArco;
+    TextView detailsAH;
+    TextView detailsArc;
+    TextView detailsAth;
+    TextView detailsDecept;
+    TextView detailsHist;
+    TextView detailsIns;
+    TextView detailsIntimi;
+    TextView detailsInvest;
+    TextView detailsMed;
+    TextView detailsNat;
+    TextView detailsPerc;
+    TextView detailsPerf;
+    TextView detailsPers;
+    TextView detailsRelig;
+    TextView detailsSoH;
+    TextView detailsSteal;
+    TextView detailsSurv;
 
     //Character class ImageView.
     ImageButton detailsImage;
@@ -98,6 +120,26 @@ public class DetailsFragment extends Fragment {
         detailsSpeed = view.findViewById(R.id.detailsSpeed);
         detailsProf = view.findViewById(R.id.detailsProf);
 
+        detailsArco = view.findViewById(R.id.detailsAcro);
+        detailsAH = view.findViewById(R.id.detailsAH);
+        detailsArc = view.findViewById(R.id.detailsArc);
+        detailsAth = view.findViewById(R.id.detailsAth);
+        detailsDecept = view.findViewById(R.id.detailsDecept);
+        detailsHist = view.findViewById(R.id.detailsHist);
+        detailsIns = view.findViewById(R.id.detailsIns);
+        detailsIntimi = view.findViewById(R.id.detailsIntimi);
+        detailsInvest = view.findViewById(R.id.detailsInvest);
+        detailsMed = view.findViewById(R.id.detailsMed);
+        detailsNat = view.findViewById(R.id.detailsNat);
+        detailsPerc = view.findViewById(R.id.detailsPerc);
+        detailsPerf = view.findViewById(R.id.detailsPerf);
+        detailsPers = view.findViewById(R.id.detailsPers);
+        detailsRelig = view.findViewById(R.id.detailsRelig);
+        detailsSoH = view.findViewById(R.id.detailsSoH);
+        detailsSteal = view.findViewById(R.id.detailsSteal);
+        detailsSurv = view.findViewById(R.id.detailsSurv);
+
+
         //...set each field appropriately based on data passed from selected item in recyclerView.
         detailsName.setText(name);
         detailsLevel.setText("Level " + level);
@@ -114,9 +156,31 @@ public class DetailsFragment extends Fragment {
         detailsWis.setText(Integer.toString(wis));
         detailsChr.setText(Integer.toString(chr));
         detailsHP.setText(HP + "/" + HP + " HP");
-        detailsArmorClass.setText("AC "+ (10 + ((dex - 10)/2)));
+        armorClass = (10 + (dex - 10)/2);
+        detailsArmorClass.setText("AC "+ armorClass);
         detailsSpeed.setText("Speed 30 ft");
-        detailsProf.setText("Prof " + (2 + (level - 1)/4));
+        prof = (2 + (level - 1)/4);
+        detailsProf.setText("Prof " + prof);
+        detailsArco.setText(calculateModifier(dex));
+        detailsAH.setText(calculateModifier(wis));
+        detailsArc.setText(calculateModifier(intelligence));
+        detailsAth.setText(calculateModifier(str));
+        detailsDecept.setText(calculateModifier(chr));
+        detailsHist.setText(calculateModifier(intelligence));
+        detailsIns.setText(calculateModifier(wis));
+        detailsIntimi.setText(calculateModifier(chr));
+        detailsInvest.setText(calculateModifier(intelligence));
+        detailsMed.setText(calculateModifier(wis));
+        detailsNat.setText(calculateModifier(intelligence));
+        detailsPerc.setText(calculateModifier(wis));
+        detailsPerf.setText(calculateModifier(chr));
+        detailsPers.setText(calculateModifier(chr));
+        detailsRelig.setText(calculateModifier(intelligence));
+        detailsSoH.setText(calculateModifier(dex));
+        detailsSteal.setText(calculateModifier(dex));
+        detailsSurv.setText(calculateModifier(wis));
+
+
 
         //Set the ImageView based on which class the character is.
         //TODO: allow users to upload their own images to serve as profile pictures. I'll likely keep this code section in to serve as a default image even after this is done.
@@ -284,6 +348,19 @@ public class DetailsFragment extends Fragment {
         }
     }
 
+    //Helper function to calculate ability modifiers
+    public String calculateModifier(int value){
+        value = ((value - 10) / 2);
+        if (value < 0){
+            String result = Integer.toString(value);
+            return result;
+        }
+        else{
+            String result = "+" + value;
+            return result;
+        }
+
+    }
 
 }
 

@@ -323,7 +323,7 @@
             <RadioButton
                 android:id="@+id/detailsAcroRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -331,7 +331,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsAcroLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -339,7 +339,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
 
         </LinearLayout>
@@ -352,7 +351,7 @@
             <RadioButton
                 android:id="@+id/detailsAHRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -360,7 +359,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsAHLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -368,7 +367,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -380,7 +378,7 @@
             <RadioButton
                 android:id="@+id/detailsArcRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -388,7 +386,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsArcLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -396,7 +394,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -408,7 +405,7 @@
             <RadioButton
                 android:id="@+id/detailsAthRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -416,7 +413,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsAthLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -424,7 +421,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -436,7 +432,7 @@
             <RadioButton
                 android:id="@+id/detailsDeceptRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -444,7 +440,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsDeceptLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -452,7 +448,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
 
         </LinearLayout>
@@ -465,7 +460,7 @@
             <RadioButton
                 android:id="@+id/detailsHistRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -473,7 +468,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsHistLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -481,7 +476,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -493,7 +487,7 @@
             <RadioButton
                 android:id="@+id/detailsInsRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -501,7 +495,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsInsLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -509,7 +503,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -521,7 +514,7 @@
             <RadioButton
                 android:id="@+id/detailsIntimiRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -529,7 +522,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsIntimiLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -537,7 +530,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -549,7 +541,7 @@
             <RadioButton
                 android:id="@+id/detailsInvestRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -557,7 +549,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsInvestLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -565,7 +557,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -577,7 +568,7 @@
             <RadioButton
                 android:id="@+id/detailsMedRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -585,7 +576,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsMedLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -593,7 +584,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -605,7 +595,7 @@
             <RadioButton
                 android:id="@+id/detailsNatRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -613,7 +603,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsNatLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -621,7 +611,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -633,7 +622,7 @@
             <RadioButton
                 android:id="@+id/detailsPercRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -641,7 +630,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsPercLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -649,7 +638,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -661,7 +649,7 @@
             <RadioButton
                 android:id="@+id/detailsPerfRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -669,7 +657,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsPerfLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -677,7 +665,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -689,7 +676,7 @@
             <RadioButton
                 android:id="@+id/detailsPersRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -697,7 +684,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsPersLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -705,7 +692,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -717,7 +703,7 @@
             <RadioButton
                 android:id="@+id/detailsReligRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -725,7 +711,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsReligLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -733,7 +719,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -745,7 +730,7 @@
             <RadioButton
                 android:id="@+id/detailsSoHRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -753,7 +738,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsSoHLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -761,7 +746,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -773,7 +757,7 @@
             <RadioButton
                 android:id="@+id/detailsStealRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -781,7 +765,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsStealLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -789,7 +773,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -801,7 +784,7 @@
             <RadioButton
                 android:id="@+id/detailsSurvRadio"
                 android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_height="28dp"
                 android:layout_weight="0" />
 
             <TextView
@@ -809,7 +792,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/detailsSurvLabel"
                 android:textAlignment="viewStart" />
 
             <TextView
@@ -817,7 +800,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
