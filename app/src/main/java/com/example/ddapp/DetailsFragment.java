@@ -6,8 +6,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+
+import com.google.android.material.chip.ChipGroup;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -49,7 +54,7 @@ public class DetailsFragment extends Fragment {
 
     static Character character;
 
-    //Instances of needed TextViews
+    //Instances of needed TextViews.
     TextView detailsName;
     TextView detailsLevel;
     TextView detailsRace;
@@ -68,6 +73,7 @@ public class DetailsFragment extends Fragment {
     TextView detailsArmorClass;
     TextView detailsSpeed;
     TextView detailsProf;
+
     TextView detailsArco;
     TextView detailsAH;
     TextView detailsArc;
@@ -86,6 +92,26 @@ public class DetailsFragment extends Fragment {
     TextView detailsSoH;
     TextView detailsSteal;
     TextView detailsSurv;
+
+    //Instances of needed CheckBoxes.
+    CheckBox checkAcro;
+    CheckBox checkAH;
+    CheckBox checkArc;
+    CheckBox checkAth;
+    CheckBox checkDecept;
+    CheckBox checkHist;
+    CheckBox checkIns;
+    CheckBox checkIntimi;
+    CheckBox checkInvest;
+    CheckBox checkMed;
+    CheckBox checkNat;
+    CheckBox checkPerc;
+    CheckBox checkPerf;
+    CheckBox checkPers;
+    CheckBox checkRelig;
+    CheckBox checkSoH;
+    CheckBox checkSteal;
+    CheckBox checkSurv;
 
     //Character class ImageView.
     ImageButton detailsImage;
@@ -161,6 +187,7 @@ public class DetailsFragment extends Fragment {
         detailsSpeed.setText("Speed 30 ft");
         prof = (2 + (level - 1)/4);
         detailsProf.setText("Prof " + prof);
+
         detailsArco.setText(calculateModifier(dex));
         detailsAH.setText(calculateModifier(wis));
         detailsArc.setText(calculateModifier(intelligence));
@@ -180,6 +207,24 @@ public class DetailsFragment extends Fragment {
         detailsSteal.setText(calculateModifier(dex));
         detailsSurv.setText(calculateModifier(wis));
 
+        checkAcro = view.findViewById(R.id.detailsAcroCheck);
+        checkAH = view.findViewById(R.id.detailsAHCheck);
+        checkArc = view.findViewById(R.id.detailsArcCheck);
+        checkAth = view.findViewById(R.id.detailsAthCheck);
+        checkDecept = view.findViewById(R.id.detailsDeceptCheck);
+        checkHist = view.findViewById(R.id.detailsHistCheck);
+        checkIns = view.findViewById(R.id.detailsInsCheck);
+        checkIntimi = view.findViewById(R.id.detailsIntimiCheck);
+        checkInvest = view.findViewById(R.id.detailsInvestCheck);
+        checkMed = view.findViewById(R.id.detailsMedCheck);
+        checkNat = view.findViewById(R.id.detailsNatCheck);
+        checkPerc = view.findViewById(R.id.detailsPercCheck);
+        checkPerf = view.findViewById(R.id.detailsPerfCheck);
+        checkPers = view.findViewById(R.id.detailsPersCheck);
+        checkRelig = view.findViewById(R.id.detailsReligCheck);
+        checkSoH = view.findViewById(R.id.detailsSoHCheck);
+        checkSteal = view.findViewById(R.id.detailsStealCheck);
+        checkSurv = view.findViewById(R.id.detailsSurvCheck);
 
 
         //Set the ImageView based on which class the character is.
@@ -227,6 +272,188 @@ public class DetailsFragment extends Fragment {
 
         //Lets the fragment know that it has an options menu in the action bar that it needs to be paying attention to (tracking clicks, refreshing menus)
         setHasOptionsMenu(true);
+
+        //Checkbox ChangeListeners to change skill modifiers based on proficiency when checked.
+        //TODO: Save these states in the database so they are persistent
+        checkAcro.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsArco.setText(calculateModifier(dex, prof));
+            }
+            else{
+                detailsArco.setText(calculateModifier(dex));
+            }
+        });
+
+        checkAH.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsAH.setText(calculateModifier(wis, prof));
+            }
+            else{
+                detailsAH.setText(calculateModifier(wis));
+            }
+        });
+
+        checkArc.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsArc.setText(calculateModifier(intelligence, prof));
+            }
+            else{
+                detailsArc.setText(calculateModifier(intelligence));
+            }
+        });
+
+        checkAth.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsAth.setText(calculateModifier(str, prof));
+            }
+            else{
+                detailsAth.setText(calculateModifier(str));
+            }
+        });
+
+        checkDecept.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsDecept.setText(calculateModifier(chr, prof));
+            }
+            else{
+                detailsDecept.setText(calculateModifier(chr));
+            }
+        });
+
+        checkHist.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsHist.setText(calculateModifier(intelligence, prof));
+            }
+            else{
+                detailsHist.setText(calculateModifier(intelligence));
+            }
+        });
+
+        checkIns.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsIns.setText(calculateModifier(wis, prof));
+            }
+            else{
+                detailsIns.setText(calculateModifier(wis));
+            }
+        });
+
+        checkIntimi.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsIntimi.setText(calculateModifier(chr, prof));
+            }
+            else{
+                detailsIntimi.setText(calculateModifier(chr));
+            }
+        });
+
+        checkInvest.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsInvest.setText(calculateModifier(intelligence, prof));
+            }
+            else{
+                detailsInvest.setText(calculateModifier(intelligence));
+            }
+        });
+
+        checkMed.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsMed.setText(calculateModifier(wis, prof));
+            }
+            else{
+                detailsMed.setText(calculateModifier(wis));
+            }
+        });
+
+        checkNat.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsNat.setText(calculateModifier(intelligence, prof));
+            }
+            else{
+                detailsNat.setText(calculateModifier(intelligence));
+            }
+        });
+
+        checkPerc.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsPerc.setText(calculateModifier(wis, prof));
+            }
+            else{
+                detailsPerc.setText(calculateModifier(wis));
+            }
+        });
+
+        checkPerf.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsPerf.setText(calculateModifier(chr, prof));
+            }
+            else{
+                detailsPerf.setText(calculateModifier(chr));
+            }
+        });
+
+        checkPers.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsPers.setText(calculateModifier(chr, prof));
+            }
+            else{
+                detailsPers.setText(calculateModifier(chr));
+            }
+        });
+
+        checkRelig.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsRelig.setText(calculateModifier(intelligence, prof));
+            }
+            else{
+                detailsRelig.setText(calculateModifier(intelligence));
+            }
+        });
+
+        checkSoH.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsSoH.setText(calculateModifier(dex, prof));
+            }
+            else{
+                detailsSoH.setText(calculateModifier(dex));
+            }
+        });
+
+        checkSteal.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsSteal.setText(calculateModifier(dex, prof));
+            }
+            else{
+                detailsSteal.setText(calculateModifier(dex));
+            }
+        });
+
+        checkSurv.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked)
+            {
+                detailsSurv.setText(calculateModifier(wis, prof));
+            }
+            else{
+                detailsSurv.setText(calculateModifier(wis));
+            }
+        });
 
         return view;
     }
@@ -359,6 +586,19 @@ public class DetailsFragment extends Fragment {
             String result = "+" + value;
             return result;
         }
+
+    }
+
+    public String calculateModifier(int value, int prof){
+        value = ((value - 10) / 2);
+        String result;
+        if (value < 0){
+            result = Integer.toString(value + prof);
+        }
+        else{
+            result = "+" + (value + prof);
+        }
+        return result;
 
     }
 

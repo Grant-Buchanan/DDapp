@@ -303,7 +303,7 @@
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
@@ -320,8 +320,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsAcroRadio"
+            <CheckBox
+                android:id="@+id/detailsAcroCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -348,8 +348,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsAHRadio"
+            <CheckBox
+                android:id="@+id/detailsAHCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -375,8 +375,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsArcRadio"
+            <CheckBox
+                android:id="@+id/detailsArcCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -402,8 +402,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsAthRadio"
+            <CheckBox
+                android:id="@+id/detailsAthCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -429,8 +429,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsDeceptRadio"
+            <CheckBox
+                android:id="@+id/detailsDeceptCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -457,8 +457,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsHistRadio"
+            <CheckBox
+                android:id="@+id/detailsHistCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -484,8 +484,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsInsRadio"
+            <CheckBox
+                android:id="@+id/detailsInsCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -511,8 +511,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsIntimiRadio"
+            <CheckBox
+                android:id="@+id/detailsIntimiCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -538,8 +538,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsInvestRadio"
+            <CheckBox
+                android:id="@+id/detailsInvestCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -565,8 +565,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsMedRadio"
+            <CheckBox
+                android:id="@+id/detailsMedCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -592,8 +592,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsNatRadio"
+            <CheckBox
+                android:id="@+id/detailsNatCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -619,8 +619,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsPercRadio"
+            <CheckBox
+                android:id="@+id/detailsPercCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -646,8 +646,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsPerfRadio"
+            <CheckBox
+                android:id="@+id/detailsPerfCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -673,8 +673,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsPersRadio"
+            <CheckBox
+                android:id="@+id/detailsPersCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -700,8 +700,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsReligRadio"
+            <CheckBox
+                android:id="@+id/detailsReligCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -727,8 +727,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsSoHRadio"
+            <CheckBox
+                android:id="@+id/detailsSoHCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -754,8 +754,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsStealRadio"
+            <CheckBox
+                android:id="@+id/detailsStealCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
@@ -781,8 +781,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/detailsSurvRadio"
+            <CheckBox
+                android:id="@+id/detailsSurvCheck"
                 android:layout_width="30dp"
                 android:layout_height="28dp"
                 android:layout_weight="0" />
