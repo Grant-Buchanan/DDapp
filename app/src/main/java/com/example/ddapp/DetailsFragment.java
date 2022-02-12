@@ -579,16 +579,15 @@ public class DetailsFragment extends Fragment {
     public String calculateModifier(int value){
         value = ((value - 10) / 2);
         if (value < 0){
-            String result = Integer.toString(value);
-            return result;
+            return Integer.toString(value);
         }
         else{
-            String result = "+" + value;
-            return result;
+            return "+" + value;
         }
 
     }
 
+    //Helper function to calculate ability modifier adding on prof
     public String calculateModifier(int value, int prof){
         value = ((value - 10) / 2);
         String result;

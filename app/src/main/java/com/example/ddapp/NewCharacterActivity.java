@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 public class NewCharacterActivity extends AppCompatActivity {
 
+    //Key identifiers for adding entered data to replyIntent.
     public static final String ID_REPLY = "com.example.android.idlistsql.REPLY";
     public static final String NAME_REPLY = "com.example.android.characterlistsql.REPLY";
     public static final String LEVEL_REPLY = "com.example.android.levellistsql.REPLY";
@@ -27,6 +28,7 @@ public class NewCharacterActivity extends AppCompatActivity {
     public static final String CHR_REPLY = "com.example.android.chrlistsql.REPLY";
     public static final String HP_REPLY = "com.example.android.hplistsql.REPLY";
 
+    //Instances of needed EditTexts
     private EditText mEditCharacterView;
     private EditText mEditLevelView;
     private EditText mEditRaceView;
@@ -47,6 +49,8 @@ public class NewCharacterActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set views
         setContentView(R.layout.activity_new_character);
         mEditCharacterView = findViewById(R.id.edit_name);
         mEditLevelView = findViewById(R.id.edit_level);
@@ -64,12 +68,17 @@ public class NewCharacterActivity extends AppCompatActivity {
         mEditChrView = findViewById(R.id.edit_chr);
         mEditHPView = findViewById(R.id.edit_hp);
 
+        //Save character button.
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> {
+            //Create a new intent for holding character data.
             Intent replyIntent = new Intent();
+            //Cancel adding a character if these fields are empty.
             if (TextUtils.isEmpty(mEditCharacterView.getText()) || TextUtils.isEmpty(mEditLevelView.getText()) || TextUtils.isEmpty(mEditRaceView.getText()) || TextUtils.isEmpty(mEditClasView.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
+
+                //Retrieve data from EditText boxes.
                 String name = mEditCharacterView.getText().toString();
                 int level = Integer.parseInt(mEditLevelView.getText().toString());
                 String race = mEditRaceView.getText().toString();
@@ -86,6 +95,7 @@ public class NewCharacterActivity extends AppCompatActivity {
                 int chr = Integer.parseInt(mEditChrView.getText().toString());
                 int hp = Integer.parseInt(mEditHPView.getText().toString());
 
+                //Add data to intent.
                 replyIntent.putExtra(NAME_REPLY, name);
                 replyIntent.putExtra(LEVEL_REPLY, level);
                 replyIntent.putExtra(RACE_REPLY, race);
