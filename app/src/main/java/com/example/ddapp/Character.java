@@ -225,7 +225,7 @@ public class Character {
     //TODO: Make this work.
     public static Character[] populate(){
         return new Character[]{
-       //         new Character(0,"Zagara", 10, "Tiefling", "sorcerer"),
+                new Character(0,"Zagara", 10, "Tiefling", "Sorcerer","medium","noble","neutral",3,10,13,15,13,8,19,65,false,false,false,false,true,false,false,false,true,false,false,true,false,true,false,false,true,false),
        //         new Character(1, "Lothar",2,"Human","fighter"),
        //         new Character(2,"Duul",5,"Half-Orc","barbarian"),
        //         new Character(3,"Shiina",14,"Elf","wizard"),

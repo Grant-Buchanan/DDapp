@@ -14,7 +14,7 @@ public class DetailsViewModel extends AndroidViewModel {
     private CharacterRepository mRepository;
     private final LiveData<List<Character>> mAllCharacters;
 
-    //The ViewModel holds an reference to the repository, and every character in the repository for easier access from the fragments.
+    //The ViewModel holds an reference to the repository itself and every character in the repository for easier access from the fragments.
     public DetailsViewModel(Application application) {
         super(application);
         mRepository = new CharacterRepository(application);

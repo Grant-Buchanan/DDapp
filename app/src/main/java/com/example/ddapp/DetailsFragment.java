@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -293,7 +294,7 @@ public class DetailsFragment extends Fragment {
         setHasOptionsMenu(true);
 
         //Checkbox ChangeListeners to change skill modifiers based on proficiency when checked.
-        //TODO: Save these states in the database so they are persistent
+        //Whenever a checkbox is checked the database is updated to allow persistence for checkbox states.
         checkAcro.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
@@ -654,6 +655,9 @@ public class DetailsFragment extends Fragment {
             checkSurv.setChecked(false);
         }
 
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.hide();
+
         return view;
     }
 
@@ -670,6 +674,8 @@ public class DetailsFragment extends Fragment {
 
         //Invalidate the options menu when the user navigates back to the RecyclerViewFragment, this is done to hide the options that are only supposed to display while the details fragment is present
         getActivity().invalidateOptionsMenu();
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.show();
 
     }
 

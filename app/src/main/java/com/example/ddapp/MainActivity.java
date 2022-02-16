@@ -23,7 +23,7 @@ import static com.example.ddapp.RecyclerViewFragment.NEW_CHARACTER_ACTIVITY_REQU
 public class MainActivity extends AppCompatActivity {
 
     private DetailsViewModel mDetailsViewModel;
-    static FloatingActionButton fab;
+
 
 
     @Override
@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
-
         invalidateOptionsMenu();
     }
 
