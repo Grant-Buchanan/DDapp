@@ -105,10 +105,10 @@ public class EditCharacterActivity extends AppCompatActivity {
             } else {
                 //Get the current EditText values and set to new variables
                 int id = getIntent().getExtras().getInt("EDIT_ID");
-                String name = mEditCharacterView.getText().toString();
+                String name = capitalizeInput(mEditCharacterView.getText().toString());
                 int level = Integer.parseInt(mEditLevelView.getText().toString());
                 String race = mEditRaceView.getText().toString();
-                String clas = mEditClasView.getText().toString();
+                String clas = capitalizeInput(mEditClasView.getText().toString());
                 String size = mEditSizeView.getText().toString();
                 String background = mEditBackgroundView.getText().toString();
                 String alignment = mEditAlignmentView.getText().toString();
@@ -143,5 +143,15 @@ public class EditCharacterActivity extends AppCompatActivity {
             }
             finish();
         });
+    }
+
+    //Helper method to capitalize the first letter of user input to enforce grammatical consistency.
+    public static String capitalizeInput(String input){
+        String output = input;
+        try{
+            output = input.substring(0,1).toUpperCase() + output.substring(1);
+        }
+        catch (Exception e){}
+        return output;
     }
 }

@@ -19,7 +19,7 @@
                 android:layout_margin="@dimen/big_padding"
                 android:fontFamily="sans-serif-light"
                 android:hint="@string/hint_character"
-                android:inputType="textAutoComplete"
+                android:inputType="textCapSentences"
                 android:minHeight="@dimen/min_height"
                 android:textSize="18sp" />
 
@@ -30,7 +30,7 @@
                 android:layout_margin="@dimen/big_padding"
                 android:fontFamily="sans-serif-light"
                 android:hint="@string/hint_clas"
-                android:inputType="textAutoComplete"
+                android:inputType="textCapSentences"
                 android:minHeight="@dimen/min_height"
                 android:textSize="18sp" />
 
