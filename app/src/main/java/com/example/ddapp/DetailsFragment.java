@@ -52,6 +52,25 @@ public class DetailsFragment extends Fragment {
     static Integer speed;
     static Integer prof;
 
+    static boolean acroProf;
+    static boolean AHProf;
+    static boolean arcProf;
+    static boolean athProf;
+    static boolean deceptProf;
+    static boolean histProf;
+    static boolean insProf;
+    static boolean intimiProf;
+    static boolean investProf;
+    static boolean medProf;
+    static boolean natProf;
+    static boolean percProf;
+    static boolean perfProf;
+    static boolean persProf;
+    static boolean religProf;
+    static boolean SoHProf;
+    static boolean stealProf;
+    static boolean survProf;
+
     static Character character;
 
     //Instances of needed TextViews.
@@ -279,181 +298,361 @@ public class DetailsFragment extends Fragment {
             if (isChecked)
             {
                 detailsArco.setText(calculateModifier(dex, prof));
+                acroProf = true;
             }
             else{
                 detailsArco.setText(calculateModifier(dex));
+                acroProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(acroProf){
+            checkAcro.setChecked(true);
+        }
+        else {
+            checkAcro.setChecked(false);
+        }
 
         checkAH.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsAH.setText(calculateModifier(wis, prof));
+                AHProf = true;
             }
             else{
                 detailsAH.setText(calculateModifier(wis));
+                AHProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(AHProf){
+            checkAH.setChecked(true);
+        }
+        else {
+            checkAH.setChecked(false);
+        }
 
         checkArc.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsArc.setText(calculateModifier(intelligence, prof));
+                arcProf = true;
             }
             else{
                 detailsArc.setText(calculateModifier(intelligence));
+                arcProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(arcProf){
+            checkArc.setChecked(true);
+        }
+        else {
+            checkArc.setChecked(false);
+        }
 
         checkAth.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsAth.setText(calculateModifier(str, prof));
+                athProf = true;
             }
             else{
                 detailsAth.setText(calculateModifier(str));
+                athProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(athProf){
+            checkAth.setChecked(true);
+        }
+        else {
+            checkAth.setChecked(false);
+        }
 
         checkDecept.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsDecept.setText(calculateModifier(chr, prof));
+                deceptProf = true;
             }
             else{
                 detailsDecept.setText(calculateModifier(chr));
+                deceptProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(deceptProf){
+            checkDecept.setChecked(true);
+        }
+        else {
+            checkDecept.setChecked(false);
+        }
 
         checkHist.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsHist.setText(calculateModifier(intelligence, prof));
+                histProf = true;
             }
             else{
                 detailsHist.setText(calculateModifier(intelligence));
+                histProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(histProf){
+            checkHist.setChecked(true);
+        }
+        else {
+            checkHist.setChecked(false);
+        }
 
         checkIns.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsIns.setText(calculateModifier(wis, prof));
+                insProf = true;
             }
             else{
                 detailsIns.setText(calculateModifier(wis));
+                insProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(insProf){
+            checkIns.setChecked(true);
+        }
+        else {
+            checkIns.setChecked(false);
+        }
 
         checkIntimi.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsIntimi.setText(calculateModifier(chr, prof));
+                intimiProf = true;
             }
             else{
                 detailsIntimi.setText(calculateModifier(chr));
+                intimiProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(intimiProf){
+            checkIntimi.setChecked(true);
+        }
+        else {
+            checkIntimi.setChecked(false);
+        }
 
         checkInvest.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsInvest.setText(calculateModifier(intelligence, prof));
+                investProf = true;
             }
             else{
                 detailsInvest.setText(calculateModifier(intelligence));
+                investProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(investProf){
+            checkInvest.setChecked(true);
+        }
+        else {
+            checkInvest.setChecked(false);
+        }
 
         checkMed.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsMed.setText(calculateModifier(wis, prof));
+                medProf = true;
             }
             else{
                 detailsMed.setText(calculateModifier(wis));
+                medProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(medProf){
+            checkMed.setChecked(true);
+        }
+        else {
+            checkMed.setChecked(false);
+        }
 
         checkNat.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsNat.setText(calculateModifier(intelligence, prof));
+                natProf = true;
             }
             else{
                 detailsNat.setText(calculateModifier(intelligence));
+                natProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(natProf){
+            checkNat.setChecked(true);
+        }
+        else {
+            checkNat.setChecked(false);
+        }
 
         checkPerc.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsPerc.setText(calculateModifier(wis, prof));
+                percProf = true;
             }
             else{
                 detailsPerc.setText(calculateModifier(wis));
+                percProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(percProf){
+            checkPerc.setChecked(true);
+        }
+        else {
+            checkPerc.setChecked(false);
+        }
 
         checkPerf.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsPerf.setText(calculateModifier(chr, prof));
+                perfProf = true;
             }
             else{
                 detailsPerf.setText(calculateModifier(chr));
+                perfProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(perfProf){
+            checkPerf.setChecked(true);
+        }
+        else {
+            checkPerf.setChecked(false);
+        }
 
         checkPers.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsPers.setText(calculateModifier(chr, prof));
+                persProf = true;
             }
             else{
                 detailsPers.setText(calculateModifier(chr));
+                persProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(persProf){
+            checkPers.setChecked(true);
+        }
+        else {
+            checkPers.setChecked(false);
+        }
 
         checkRelig.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsRelig.setText(calculateModifier(intelligence, prof));
+                religProf = true;
             }
             else{
                 detailsRelig.setText(calculateModifier(intelligence));
+                religProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(religProf){
+            checkRelig.setChecked(true);
+        }
+        else {
+            checkRelig.setChecked(false);
+        }
 
         checkSoH.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsSoH.setText(calculateModifier(dex, prof));
+                SoHProf = true;
             }
             else{
                 detailsSoH.setText(calculateModifier(dex));
+                SoHProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(SoHProf){
+            checkSoH.setChecked(true);
+        }
+        else {
+            checkSoH.setChecked(false);
+        }
 
         checkSteal.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsSteal.setText(calculateModifier(dex, prof));
+                stealProf = true;
             }
             else{
                 detailsSteal.setText(calculateModifier(dex));
+                stealProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(stealProf){
+            checkSteal.setChecked(true);
+        }
+        else {
+            checkSteal.setChecked(false);
+        }
 
         checkSurv.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
             {
                 detailsSurv.setText(calculateModifier(wis, prof));
+                survProf = true;
             }
             else{
                 detailsSurv.setText(calculateModifier(wis));
+                survProf = false;
             }
+            mDetailsViewModel.update(makeCharacter());
         });
+
+        if(survProf){
+            checkSurv.setChecked(true);
+        }
+        else {
+            checkSurv.setChecked(false);
+        }
 
         return view;
     }
@@ -493,6 +692,25 @@ public class DetailsFragment extends Fragment {
         wis = bundle.getInt("wis");
         chr = bundle.getInt("chr");
         HP = bundle.getInt("HP");
+        acroProf = bundle.getBoolean("acroProf");
+        AHProf = bundle.getBoolean("AHProf");
+        arcProf = bundle.getBoolean("arcProf");
+        athProf = bundle.getBoolean("athProf");
+        deceptProf = bundle.getBoolean("deceptProf");
+        histProf = bundle.getBoolean("histProf");
+        insProf = bundle.getBoolean("insProf");
+        intimiProf = bundle.getBoolean("intimiProf");
+        investProf = bundle.getBoolean("investProf");
+        medProf = bundle.getBoolean("medProf");
+        natProf = bundle.getBoolean("natProf");
+        percProf = bundle.getBoolean("percProf");
+        perfProf = bundle.getBoolean("perfProf");
+        persProf = bundle.getBoolean("persProf");
+        religProf = bundle.getBoolean("religProf");
+        SoHProf = bundle.getBoolean("SoHProf");
+        stealProf = bundle.getBoolean("stealProf");
+        survProf = bundle.getBoolean("survProf");
+
 
         return new DetailsFragment();
     }
@@ -503,9 +721,7 @@ public class DetailsFragment extends Fragment {
 
             case R.id.action_delete:
                 //Delete a character
-                //Todo: Change this to be just the character ID instead of making an entirely new character in order to tell the database what to delete
-                character = new Character(id,name,level,race,clas,size,background,alignment,init,str,dex,con,intelligence,wis,chr,HP);
-                mDetailsViewModel.delete(character);
+                mDetailsViewModel.delete(makeCharacter());
                 getActivity().getSupportFragmentManager().popBackStack();
                 return true;
 
@@ -559,7 +775,25 @@ public class DetailsFragment extends Fragment {
                     data.getIntExtra(EditCharacterActivity.INT_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.WIS_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.CHR_REPLY,10),
-                    data.getIntExtra(EditCharacterActivity.HP_REPLY,10));
+                    data.getIntExtra(EditCharacterActivity.HP_REPLY,10),
+                    acroProf,
+                    AHProf,
+                    arcProf,
+                    athProf,
+                    deceptProf,
+                    histProf,
+                    insProf,
+                    intimiProf,
+                    investProf,
+                    medProf,
+                    natProf,
+                    percProf,
+                    perfProf,
+                    persProf,
+                    religProf,
+                    SoHProf,
+                    stealProf,
+                    survProf);
             //Replace the existing character with the new character.
             mDetailsViewModel.update(character);
             getActivity().getSupportFragmentManager().popBackStack();
@@ -599,6 +833,47 @@ public class DetailsFragment extends Fragment {
         }
         return result;
 
+    }
+
+    //Helper function to create a new instance of a character with the data on the current DetailsFragment
+    public Character makeCharacter(){
+        character = new Character(
+                id,
+                name,
+                level,
+                race,
+                clas,
+                size,
+                background,
+                alignment,
+                init,
+                str,
+                dex,
+                con,
+                intelligence,
+                wis,
+                chr,
+                HP,
+                acroProf,
+                AHProf,
+                arcProf,
+                athProf,
+                deceptProf,
+                histProf,
+                insProf,
+                intimiProf,
+                investProf,
+                medProf,
+                natProf,
+                percProf,
+                perfProf,
+                persProf,
+                religProf,
+                SoHProf,
+                stealProf,
+                survProf
+        );
+        return character;
     }
 
 }

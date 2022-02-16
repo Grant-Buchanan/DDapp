@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
@@ -76,7 +75,25 @@ import java.util.List;
                     character.getIntelligence(),
                     character.getWis(),
                     character.getChr(),
-                    character.getHealthPoints());
+                    character.getHealthPoints(),
+                    character.getAcroProf(),
+                    character.getAHProf(),
+                    character.getArcProf(),
+                    character.getAthProf(),
+                    character.getDeceptProf(),
+                    character.getHistProf(),
+                    character.getInsProf(),
+                    character.getIntimiProf(),
+                    character.getInvestProf(),
+                    character.getMedProf(),
+                    character.getNatProf(),
+                    character.getPercProf(),
+                    character.getPerfProf(),
+                    character.getPersProf(),
+                    character.getReligProf(),
+                    character.getSlightOfHandProf(),
+                    character.getStealProf(),
+                    character.getSurvProf());
         });
     }
 }

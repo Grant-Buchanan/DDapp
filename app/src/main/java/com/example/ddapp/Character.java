@@ -43,6 +43,43 @@ public class Character {
     private int mChr;
     @ColumnInfo(name = "healthPoints")
     private int mHealthPoints;
+    @ColumnInfo(name = "acroProf")
+    private boolean mAcroProf;
+    @ColumnInfo(name = "aHProf")
+    private boolean mAHProf;
+    @ColumnInfo(name = "arcProf")
+    private boolean mArcProf;
+    @ColumnInfo(name = "athProf")
+    private boolean mAthProf;
+    @ColumnInfo(name = "deceptProf")
+    private boolean mDeceptProf;
+    @ColumnInfo(name = "histProf")
+    private boolean mHistProf;
+    @ColumnInfo(name = "insProf")
+    private boolean mInsProf;
+    @ColumnInfo(name = "intimiProf")
+    private boolean mIntimiProf;
+    @ColumnInfo(name = "investProf")
+    private boolean mInvestProf;
+    @ColumnInfo(name = "medProf")
+    private boolean mMedProf;
+    @ColumnInfo(name ="natProf")
+    private boolean mNatProf;
+    @ColumnInfo(name ="percProf")
+    private boolean mPercProf;
+    @ColumnInfo(name = "perfProf")
+    private boolean mPerfProf;
+    @ColumnInfo(name = "persProf")
+    private boolean mPersProf;
+    @ColumnInfo(name = "religProf")
+    private boolean mReligProf;
+    @ColumnInfo(name = "slightOfHandProf")
+    private boolean mSlightOfHandProf;
+    @ColumnInfo(name = "stealProf")
+    private boolean mStealProf;
+    @ColumnInfo(name = "survProf")
+    private boolean mSurvProf;
+
 
     public Character(@NonNull int id,
                      @NonNull String name,
@@ -59,7 +96,25 @@ public class Character {
                      @NonNull int intelligence,
                      @NonNull int wis,
                      @NonNull int chr,
-                     @NonNull int healthPoints
+                     @NonNull int healthPoints,
+                     @NonNull boolean acroProf,
+                     @NonNull boolean aHProf,
+                     @NonNull boolean arcProf,
+                     @NonNull boolean athProf,
+                     @NonNull boolean deceptProf,
+                     @NonNull boolean histProf,
+                     @NonNull boolean insProf,
+                     @NonNull boolean intimiProf,
+                     @NonNull boolean investProf,
+                     @NonNull boolean medProf,
+                     @NonNull boolean natProf,
+                     @NonNull boolean percProf,
+                     @NonNull boolean perfProf,
+                     @NonNull boolean persProf,
+                     @NonNull boolean religProf,
+                     @NonNull boolean slightOfHandProf,
+                     @NonNull boolean stealProf,
+                     @NonNull boolean survProf
     ) {
         this.mId = id;
         this.mName = name;
@@ -77,6 +132,24 @@ public class Character {
         this.mWis = wis;
         this.mChr = chr;
         this.mHealthPoints = healthPoints;
+        this.mAcroProf = acroProf;
+        this.mAHProf = aHProf;
+        this.mArcProf = arcProf;
+        this.mAthProf = athProf;
+        this.mDeceptProf = deceptProf;
+        this.mHistProf = histProf;
+        this.mInsProf = insProf;
+        this.mIntimiProf = intimiProf;
+        this.mInvestProf = investProf;
+        this.mMedProf = medProf;
+        this.mNatProf = natProf;
+        this.mPercProf = percProf;
+        this.mPerfProf = perfProf;
+        this.mPersProf = persProf;
+        this.mReligProf = religProf;
+        this.mSlightOfHandProf = slightOfHandProf;
+        this.mStealProf = stealProf;
+        this.mSurvProf = survProf;
     }
 
     //Get methods for each column of the table.
@@ -111,6 +184,42 @@ public class Character {
     public int getChr(){return this.mChr;}
 
     public int getHealthPoints(){return this.mHealthPoints;}
+
+    public boolean getAcroProf(){return this.mAcroProf;}
+
+    public boolean getAHProf(){return this.mAHProf;}
+
+    public boolean getArcProf(){return this.mArcProf;}
+
+    public boolean getAthProf(){return this.mAthProf;}
+
+    public boolean getDeceptProf(){return this.mDeceptProf;}
+
+    public boolean getHistProf(){return this.mHistProf;}
+
+    public boolean getInsProf(){return this.mInsProf;}
+
+    public boolean getIntimiProf(){return this.mIntimiProf;}
+
+    public boolean getInvestProf(){return this.mInvestProf;}
+
+    public boolean getMedProf(){return this.mMedProf;}
+
+    public boolean getNatProf(){return this.mNatProf;}
+
+    public boolean getPercProf(){return this.mPercProf;}
+
+    public boolean getPerfProf(){return this.mPerfProf;}
+
+    public boolean getPersProf(){return this.mPersProf;}
+
+    public boolean getReligProf(){return this.mReligProf;}
+
+    public boolean getSlightOfHandProf(){return this.mSlightOfHandProf;}
+
+    public boolean getStealProf (){return this.mStealProf;}
+
+    public boolean getSurvProf(){return this.mSurvProf;}
 
     //Method to populate the database with test data. Needs to be updated.
     //TODO: Make this work.

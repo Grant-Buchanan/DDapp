@@ -85,7 +85,25 @@ public class MainActivity extends AppCompatActivity {
                     data.getIntExtra(EditCharacterActivity.INT_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.WIS_REPLY,10),
                     data.getIntExtra(EditCharacterActivity.CHR_REPLY,10),
-                    data.getIntExtra(EditCharacterActivity.HP_REPLY,10));
+                    data.getIntExtra(EditCharacterActivity.HP_REPLY,10),
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false);
             mDetailsViewModel.insert(character);
         } else if (getSupportFragmentManager().findFragmentById(R.id.main_frag) instanceof DetailsFragment) {
             Toast.makeText(

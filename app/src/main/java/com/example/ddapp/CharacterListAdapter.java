@@ -63,6 +63,7 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
     }
 
     //Retrieve the data of an item in the database dependant on the position of the item in the list view. This method is called in onBindViewHolder to provide the list with the data it needs to display items.
+    //It is also called when creating a new details fragment in order to create a bundle with the character's data to pass on to the new fragment.
     public Bundle getCharacterData(int position){
 
         Character current = getItem(position);
@@ -82,6 +83,25 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         final int wis = current.getWis();
         final int chr = current.getChr();
         final int HP = current.getHealthPoints();
+        final boolean acroProf = current.getAcroProf();
+        final boolean AHProf = current.getAHProf();
+        final boolean arcProf = current.getArcProf();
+        final boolean athProf = current.getAthProf();
+        final boolean deceptProf = current.getDeceptProf();
+        final boolean histProf = current.getHistProf();
+        final boolean insProf = current.getInsProf();
+        final boolean intimiProf = current.getIntimiProf();
+        final boolean investProf = current.getInvestProf();
+        final boolean medProf = current.getMedProf();
+        final boolean natProf = current.getNatProf();
+        final boolean percProf = current.getPercProf();
+        final boolean perfProf = current.getPerfProf();
+        final boolean persProf = current.getPersProf();
+        final boolean religProf = current.getReligProf();
+        final boolean SoHProf = current.getSlightOfHandProf();
+        final boolean stealProf = current.getStealProf();
+        final boolean survProf = current.getSurvProf();
+
 
         //Put all this information into a bundle for easier access.
         Bundle bundle = new Bundle();
@@ -101,6 +121,25 @@ public class CharacterListAdapter extends ListAdapter<Character, CharacterViewHo
         bundle.putInt("wis", wis);
         bundle.putInt("chr", chr);
         bundle.putInt("HP",HP);
+        bundle.putBoolean("acroProf", acroProf);
+        bundle.putBoolean("AHProf", AHProf);
+        bundle.putBoolean("arcProf", arcProf);
+        bundle.putBoolean("athProf", athProf);
+        bundle.putBoolean("deceptProf", deceptProf);
+        bundle.putBoolean("histProf", histProf);
+        bundle.putBoolean("insProf", insProf);
+        bundle.putBoolean("intimiProf", intimiProf);
+        bundle.putBoolean("investProf", investProf);
+        bundle.putBoolean("medProf", medProf);
+        bundle.putBoolean("natProf", natProf);
+        bundle.putBoolean("percProf", percProf);
+        bundle.putBoolean("perfProf", perfProf);
+        bundle.putBoolean("persProf", persProf);
+        bundle.putBoolean("religProf", religProf);
+        bundle.putBoolean("SoHProf", SoHProf);
+        bundle.putBoolean("stealProf", stealProf);
+        bundle.putBoolean("survProf", survProf);
+
 
         return bundle;
     }
