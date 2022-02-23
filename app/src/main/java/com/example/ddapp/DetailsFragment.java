@@ -308,12 +308,8 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(acroProf){
-            checkAcro.setChecked(true);
-        }
-        else {
-            checkAcro.setChecked(false);
-        }
+        //Set the checkbox state based on the skill proficiency boolean value stored in the database.
+        checkAcro.setChecked(acroProf);
 
         checkAH.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -328,12 +324,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(AHProf){
-            checkAH.setChecked(true);
-        }
-        else {
-            checkAH.setChecked(false);
-        }
+        checkAH.setChecked(AHProf);
 
         checkArc.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -348,12 +339,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(arcProf){
-            checkArc.setChecked(true);
-        }
-        else {
-            checkArc.setChecked(false);
-        }
+        checkArc.setChecked(arcProf);
 
         checkAth.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -368,12 +354,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(athProf){
-            checkAth.setChecked(true);
-        }
-        else {
-            checkAth.setChecked(false);
-        }
+        checkAth.setChecked(athProf);
 
         checkDecept.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -388,12 +369,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(deceptProf){
-            checkDecept.setChecked(true);
-        }
-        else {
-            checkDecept.setChecked(false);
-        }
+        checkDecept.setChecked(deceptProf);
 
         checkHist.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -408,12 +384,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(histProf){
-            checkHist.setChecked(true);
-        }
-        else {
-            checkHist.setChecked(false);
-        }
+        checkHist.setChecked(histProf);
 
         checkIns.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -428,12 +399,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(insProf){
-            checkIns.setChecked(true);
-        }
-        else {
-            checkIns.setChecked(false);
-        }
+        checkIns.setChecked(insProf);
 
         checkIntimi.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -448,12 +414,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(intimiProf){
-            checkIntimi.setChecked(true);
-        }
-        else {
-            checkIntimi.setChecked(false);
-        }
+        checkIntimi.setChecked(intimiProf);
 
         checkInvest.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -468,12 +429,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(investProf){
-            checkInvest.setChecked(true);
-        }
-        else {
-            checkInvest.setChecked(false);
-        }
+        checkInvest.setChecked(investProf);
 
         checkMed.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -488,12 +444,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(medProf){
-            checkMed.setChecked(true);
-        }
-        else {
-            checkMed.setChecked(false);
-        }
+        checkMed.setChecked(medProf);
 
         checkNat.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -508,12 +459,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(natProf){
-            checkNat.setChecked(true);
-        }
-        else {
-            checkNat.setChecked(false);
-        }
+        checkNat.setChecked(natProf);
 
         checkPerc.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -528,12 +474,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(percProf){
-            checkPerc.setChecked(true);
-        }
-        else {
-            checkPerc.setChecked(false);
-        }
+        checkPerc.setChecked(percProf);
 
         checkPerf.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -548,12 +489,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(perfProf){
-            checkPerf.setChecked(true);
-        }
-        else {
-            checkPerf.setChecked(false);
-        }
+        checkPerf.setChecked(perfProf);
 
         checkPers.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -568,12 +504,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(persProf){
-            checkPers.setChecked(true);
-        }
-        else {
-            checkPers.setChecked(false);
-        }
+        checkPers.setChecked(persProf);
 
         checkRelig.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -588,12 +519,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(religProf){
-            checkRelig.setChecked(true);
-        }
-        else {
-            checkRelig.setChecked(false);
-        }
+        checkRelig.setChecked(religProf);
 
         checkSoH.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -608,12 +534,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(SoHProf){
-            checkSoH.setChecked(true);
-        }
-        else {
-            checkSoH.setChecked(false);
-        }
+        checkSoH.setChecked(SoHProf);
 
         checkSteal.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -628,12 +549,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(stealProf){
-            checkSteal.setChecked(true);
-        }
-        else {
-            checkSteal.setChecked(false);
-        }
+        checkSteal.setChecked(stealProf);
 
         checkSurv.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked)
@@ -648,12 +564,7 @@ public class DetailsFragment extends Fragment {
             mDetailsViewModel.update(makeCharacter());
         });
 
-        if(survProf){
-            checkSurv.setChecked(true);
-        }
-        else {
-            checkSurv.setChecked(false);
-        }
+        checkSurv.setChecked(survProf);
 
         FloatingActionButton fab = getActivity().findViewById(R.id.fab);
         fab.hide();
