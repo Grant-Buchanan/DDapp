@@ -224,15 +224,15 @@ public class Character {
     //Method to populate the database with test data.
     public static Character[] populate(){
         return new Character[]{
-                new Character(1,"Zagara", 10, "Tiefling", "Sorcerer","medium","noble","neutral",3,10,13,15,13,8,19,43,false,false,false,false,true,false,false,false,true,false,false,true,false,true,false,false,true,false),
-                new Character(2, "Lothar",2,"Human","Fighter", "medium","vagrant","chaotic neutral",3,16,16,15,9,8,8,20,false,false,false,true,false,false,false,true,false,true,false,false,false,false,false,false,false,false),
-                new Character(3,"Duul",5,"Half-Orc","Barbarian","medium","hermit","evil",3,18,13,16,8,8,8,45,false,true,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,true),
-                new Character(4,"Shiina",14,"Elf","Wizard","medium","student","good",4,9,14,14,20,8,14,67,true,false,true,false,false,false,true,false,true,false,false,false,false,false,false,false,false,false),
-                new Character(5,"Vivic",3,"Drow","Ranger","medium","assassin","chaotic evil",3,13,18,13,12,14,11,22,true,true,true,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true),
-                new Character(6,"Risu",5,"Half-elf","Rogue","medium","thief","chaotic neutral",3,12,15,11,13,14,11,32,true,true,true,false,true,false,false,false,false,false,false,false,false,false,false,false,true,false),
-                new Character(7,"Hert",1,"Human","Cleric","medium","hermit","good",2,14,9,13,12,17,13,13,false,false,false,true,false,true,true,false,false,true,false,false,false,false,false,false,false,false),
-                new Character(8,"Kiva",7,"Tiefling","Rogue","medium","assasin","lawful evil",3,13,19,13,11,10,13,41,true,false,true,false,true,false,false,true,false,false,false,false,false,false,false,true,true,true),
-                new Character(9,"Zyreph",12,"Kobold","Fighter","small","knight","chaotic good",2,20,15,15,8,12,10,100,false,true,false,true,false,true,false,false,false,false,false,false,false,true,false,false,false,false),
+                new Character(1,"Zagara", 10, "tiefling", "Sorcerer","medium","noble","neutral",3,10,13,15,13,8,19,43,false,false,false,false,true,false,false,false,true,false,false,true,false,true,false,false,true,false),
+                new Character(2, "Lothar",2,"human","Fighter", "medium","vagrant","chaotic neutral",3,16,16,15,9,8,8,20,false,false,false,true,false,false,false,true,false,true,false,false,false,false,false,false,false,false),
+                new Character(3,"Duul",5,"half-Orc","Barbarian","medium","hermit","evil",3,18,13,16,8,8,8,45,false,true,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,true),
+                new Character(4,"Shiina",14,"elf","Wizard","medium","student","good",4,9,14,14,20,8,14,67,true,false,true,false,false,false,true,false,true,false,false,false,false,false,false,false,false,false),
+                new Character(5,"Vivic",3,"drow","Ranger","medium","assassin","chaotic evil",3,13,18,13,12,14,11,22,true,true,true,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true),
+                new Character(6,"Risu",5,"half-elf","Rogue","medium","thief","chaotic neutral",3,12,15,11,13,14,11,32,true,true,true,false,true,false,false,false,false,false,false,false,false,false,false,false,true,false),
+                new Character(7,"Hert",1,"human","Cleric","medium","hermit","good",2,14,9,13,12,17,13,13,false,false,false,true,false,true,true,false,false,true,false,false,false,false,false,false,false,false),
+                new Character(8,"Kiva",7,"tiefling","Rogue","medium","assasin","lawful evil",3,13,19,13,11,10,13,41,true,false,true,false,true,false,false,true,false,false,false,false,false,false,false,true,true,true),
+                new Character(9,"Zyreph",12,"kobold","Fighter","small","knight","chaotic good",2,20,15,15,8,12,10,100,false,true,false,true,false,true,false,false,false,false,false,false,false,true,false,false,false,false),
         };
     }
 }
