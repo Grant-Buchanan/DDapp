@@ -25,23 +25,20 @@ public class MainActivity extends AppCompatActivity {
     private DetailsViewModel mDetailsViewModel;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportFragmentManager().setFragmentFactory(Factory);
-
-
         setFab();
+
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             RecyclerViewFragment fragment = new RecyclerViewFragment();
             transaction.replace(R.id.main_frag, fragment);
             transaction.commit();
         }
-        mDetailsViewModel= new ViewModelProvider(this).get(DetailsViewModel.class);
 
+        mDetailsViewModel= new ViewModelProvider(this).get(DetailsViewModel.class);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -49,16 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
+        //Destroy and recreate the options menu in order to make sure it's displaying the correct set of options.
         invalidateOptionsMenu();
     }
 
-
+    //Floating action button click listener for adding a new character
     public void setFab(){
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener( view ->{
+
             Intent intent = new Intent(MainActivity.this, NewCharacterActivity.class);
             startActivityForResult(intent, NEW_CHARACTER_ACTIVITY_REQUEST_CODE);
-
 
         });
     }
@@ -68,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
 
+        //Create a new character with the data received from NewCharacterActivity and insert it into the database via the view model.
+        //Also let the user know if their character was added successfully or not.
         if (requestCode == NEW_CHARACTER_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             Character character = new Character(data.getIntExtra(NewCharacterActivity.NAME_REPLY, 0),
                     data.getStringExtra(NewCharacterActivity.NAME_REPLY),
@@ -122,13 +122,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the action bar settings menu
+        // itemSettings is unneeded for now and since it doesn't do anything it will not be made visible.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         MenuItem itemSettings = menu.findItem(R.id.action_settings);
         MenuItem itemEdit = menu.findItem(R.id.action_edit);
         MenuItem itemDelete = menu.findItem(R.id.action_delete);
-        // Check which fragment is currently in focus
+        // Check which fragment is currently in focus in order to show the correct options.
         if(checkCurrentFragment(getCurrentFragment()) == 2){
-            itemSettings.setVisible(true);
+            itemSettings.setVisible(false);
             itemEdit.setVisible(false);
             itemDelete.setVisible(false);
         }
@@ -141,36 +142,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        Log.d("FRAG","Fragment is " + getSupportFragmentManager().findFragmentById(R.id.main_frag).getClass().getSimpleName());
-
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Log.d("OPTIONS_SWITCH", "Option settings");
-            return true;
-        }
-        else if(id == R.id.action_edit){
-            Log.d("OPTIONS_SWITCH", "Option edit" );
-        }
-        else{
-            Log.d("OPTIONS_SWITCH", "Option delete");
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
+    //Helper function to find a reference to the current fragment.
     public Fragment getCurrentFragment(){
-        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_frag);
-        return currentFragment;
+        return getSupportFragmentManager().findFragmentById(R.id.main_frag);
     }
 
+    //Helper function to check what fragment is currently being displayed.
     public int checkCurrentFragment(Fragment currentFragment){
         if(currentFragment instanceof DetailsFragment){
             return 1;
@@ -178,7 +155,5 @@ public class MainActivity extends AppCompatActivity {
         return 2;
     }
 
-    FragmentFactory Factory = new FragmentFactory(){
 
-    };
 }
