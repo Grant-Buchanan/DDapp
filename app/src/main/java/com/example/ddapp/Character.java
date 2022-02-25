@@ -226,7 +226,7 @@ public class Character {
         return new Character[]{
                 new Character(1,"Zagara", 10, "tiefling", "Sorcerer","medium","noble","neutral",3,10,13,15,13,8,19,43,false,false,false,false,true,false,false,false,true,false,false,true,false,true,false,false,true,false),
                 new Character(2, "Lothar",2,"human","Fighter", "medium","vagrant","chaotic neutral",3,16,16,15,9,8,8,20,false,false,false,true,false,false,false,true,false,true,false,false,false,false,false,false,false,false),
-                new Character(3,"Duul",5,"half-Orc","Barbarian","medium","hermit","evil",3,18,13,16,8,8,8,45,false,true,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,true),
+                new Character(3,"Duul",5,"half-orc","Barbarian","medium","hermit","evil",3,18,13,16,8,8,8,45,false,true,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,true),
                 new Character(4,"Shiina",14,"elf","Wizard","medium","student","good",4,9,14,14,20,8,14,67,true,false,true,false,false,false,true,false,true,false,false,false,false,false,false,false,false,false),
                 new Character(5,"Vivic",3,"drow","Ranger","medium","assassin","chaotic evil",3,13,18,13,12,14,11,22,true,true,true,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true),
                 new Character(6,"Risu",5,"half-elf","Rogue","medium","thief","chaotic neutral",3,12,15,11,13,14,11,32,true,true,true,false,true,false,false,false,false,false,false,false,false,false,false,false,true,false),
